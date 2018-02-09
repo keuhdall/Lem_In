@@ -1,45 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lem-in.h                                           :+:      :+:    :+:   */
+/*   parser.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lmarques <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/02/09 17:53:42 by lmarques          #+#    #+#             */
-/*   Updated: 2018/02/09 18:58:52 by lmarques         ###   ########.fr       */
+/*   Created: 2018/02/09 18:07:54 by lmarques          #+#    #+#             */
+/*   Updated: 2018/02/09 18:22:25 by lmarques         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LEMIN_H
-# define LEMIN_H
+#include "../includes/lem-in.h"
 
-# include "../libft/libft.h"
-# include "../libft/get_next_line.h"
-
-enum	e_errors
+void	parse_line(t_env *env, char *ln)
 {
-	ERR_FILE_OPEN
-};
+	
+}
 
-typedef struct		s_point
+void	read_file(char *name, t_env *env)
 {
-	int				x;
-	int				y;
-}					t_point;
+	int		fd;
+	int		ret;
+	char	*ln;
 
-typedef struct		s_room
-{
-	char			*name;
-	t_point			pos;
-	struct s_room	*neighbors;
-}					t_room;
-
-typedef struct		s_env
-{
-	t_room			*rooms;
-}					t_env;
-
-void				puterr(int e);
-int					is_comment(char *s);
-
-#endif
+	fd = open(name, O_RDONLY);
+	while ((ret = get_next_line(fd, &ln)))
+	{
+		if (ret == -1)
+			puterr(ERR_FILE_OPEN);
+		if (ft_strcmp(ln, "") && !is_comment(ln))
+			parse_line(env, ln);
+		free(ln);
+	}
+	free(ln);
+}

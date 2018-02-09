@@ -1,45 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lem-in.h                                           :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lmarques <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/02/09 17:53:42 by lmarques          #+#    #+#             */
-/*   Updated: 2018/02/09 18:58:52 by lmarques         ###   ########.fr       */
+/*   Created: 2018/02/09 18:10:15 by lmarques          #+#    #+#             */
+/*   Updated: 2018/02/09 18:21:17 by lmarques         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LEMIN_H
-# define LEMIN_H
+#include "../includes/lem-in.h"
 
-# include "../libft/libft.h"
-# include "../libft/get_next_line.h"
-
-enum	e_errors
+void	puterr(int e)
 {
-	ERR_FILE_OPEN
-};
+	if (e == ERR_FILE_OPEN)
+		ft_putendl("Error : could not open this file");
+	exit(1);
+}
 
-typedef struct		s_point
+int		is_comment(char *s)
 {
-	int				x;
-	int				y;
-}					t_point;
-
-typedef struct		s_room
-{
-	char			*name;
-	t_point			pos;
-	struct s_room	*neighbors;
-}					t_room;
-
-typedef struct		s_env
-{
-	t_room			*rooms;
-}					t_env;
-
-void				puterr(int e);
-int					is_comment(char *s);
-
-#endif
+	if (!s)
+		return (0);
+	if (ft_strlen(s) >= 2)
+		return (s[0] == '#' && s[1] != '#');
+	return (0);
+}
