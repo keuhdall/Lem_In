@@ -6,7 +6,7 @@
 /*   By: lmarques <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/09 17:53:42 by lmarques          #+#    #+#             */
-/*   Updated: 2018/02/10 02:29:49 by lmarques         ###   ########.fr       */
+/*   Updated: 2018/02/10 02:39:15 by lmarques         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ typedef struct		s_room
 
 typedef struct		s_env
 {
+	char			found_command;
 	t_room			*rooms;
 }					t_env;
 
