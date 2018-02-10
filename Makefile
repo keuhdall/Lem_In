@@ -6,7 +6,7 @@
 #*   By: lmarques <lmarques@student.42.fr>          +#+  +:+       +#+        *#
 #*                                                +#+#+#+#+#+   +#+           *#
 #*   Created: 2017/11/19 05:25:46 by lmarques          #+#    #+#             *#
-#*   Updated: 2018/01/07 16:49:52 by lmarques         ###   ########.fr       *#
+#*   Updated: 2018/02/10 02:27:47 by lmarques         ###   ########.fr       *#
 #*                                                                            *#
 #* ************************************************************************** *#
 
@@ -18,6 +18,8 @@ OBJ_PATH=./objs
 LIBFT_PATH=./libft
 
 SRC_NAME = lem-in.c \
+			parser.c \
+			utils.c \
 
 OBJ_NAME = $(SRC_NAME:.c=.o)
 

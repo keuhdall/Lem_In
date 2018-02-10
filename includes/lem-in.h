@@ -6,7 +6,7 @@
 /*   By: lmarques <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/09 17:53:42 by lmarques          #+#    #+#             */
-/*   Updated: 2018/02/09 18:58:52 by lmarques         ###   ########.fr       */
+/*   Updated: 2018/02/10 02:29:49 by lmarques         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,13 @@
 enum	e_errors
 {
 	ERR_FILE_OPEN
+};
+
+enum	e_line_type
+{
+	COMMAND,
+	COMMENT,
+	COMMON
 };
 
 typedef struct		s_point
@@ -40,6 +47,6 @@ typedef struct		s_env
 }					t_env;
 
 void				puterr(int e);
-int					is_comment(char *s);
+int					get_line_type(char *s);
 
 #endif
