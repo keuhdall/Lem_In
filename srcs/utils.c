@@ -6,7 +6,7 @@
 /*   By: lmarques <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/09 18:10:15 by lmarques          #+#    #+#             */
-/*   Updated: 2018/02/10 02:34:44 by lmarques         ###   ########.fr       */
+/*   Updated: 2018/02/10 02:37:33 by lmarques         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,7 @@ int		get_line_type(char *s)
 {
 	if (!s)
 		return (-1);
-	if (ft_strlen(s) >= 2)
-	{
-		if (s[0] == '#' && s[1] != '#')
-			return (COMMENT);
-		else if (s[0] == '#' && s[1] == '#')
-			return (COMMAND);
-	}
+	if (ft_strlen(s) >= 2 && s[0] == '#')
+		return (s[1] == '#' ? COMMAND : COMMENT);
 	return (COMMON);
 }
