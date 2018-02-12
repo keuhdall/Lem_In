@@ -6,7 +6,7 @@
 /*   By: lmarques <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/09 17:53:42 by lmarques          #+#    #+#             */
-/*   Updated: 2018/02/12 18:49:47 by lmarques         ###   ########.fr       */
+/*   Updated: 2018/02/12 19:47:43 by lmarques         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,15 @@
 enum	e_errors
 {
 	ERR_FILE_OPEN,
-	ERR_INVALID_COMMAND
+	ERR_INVALID_COMMAND,
+	ERR_ROOM_NOT_FOUND
 };
 
 enum	e_line_type
 {
 	COMMAND,
 	COMMENT,
+	TUBE,
 	ANT,
 	COMMON
 };
@@ -37,33 +39,52 @@ enum	e_commands
 	END
 };
 
-typedef struct		s_point
+typedef struct			s_point
 {
-	int				x;
-	int				y;
-}					t_point;
+	int					x;
+	int					y;
+}						t_point;
 
-typedef struct		s_room
+typedef struct			s_room_content
 {
-	char			*name;
-	t_point			pos;
-	struct s_room	*neighbors;
-}					t_room;
+	char				*name;
+	t_point				pos;
+	struct s_room		*neighbors;
+}						t_room_content;
 
-typedef struct		s_ant
+typedef struct			s_room_list
 {
-	int				id;
-	t_room			pos;
-}					t_ant;
+	t_room_content		content;
+	struct s_room_list	*next;
+}						t_room_list;
 
-typedef struct		s_env
+typedef struct			s_room
 {
-	int				command;
-	t_room			*rooms;
-	t_ant			*ants;
-}					t_env;
+	t_room_content		content;
+	t_room_list			neighbors;
+}						t_room;
 
-void				puterr(int e);
-int					get_line_type(char *s);
+typedef struct			s_ant
+{
+	int					id;
+	t_room				pos;
+}						t_ant;
+
+typedef struct			s_env
+{
+	int					command;
+	int					rooms_length;
+	t_room				*rooms;
+	int					ants_length;
+	t_ant				*ants;
+}						t_env;
+
+void					puterr(int e);
+void					free_split(char **a);
+int						get_line_type(char *s);
+void					parse_command(t_env *env, char *ln);
+void					parse_tube(t_env *env, char *ln);
+
+t_room					*find_room(t_env *env, char *ln);
 
 #endif
