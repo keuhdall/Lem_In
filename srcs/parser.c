@@ -6,22 +6,31 @@
 /*   By: lmarques <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/09 18:07:54 by lmarques          #+#    #+#             */
-/*   Updated: 2018/02/10 02:29:50 by lmarques         ###   ########.fr       */
+/*   Updated: 2018/02/12 18:50:45 by lmarques         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/lem-in.h"
 
+void	parse_command(t_env *env, char *ln)
+{
+	if (!ft_strcmp(ln, "##start"))
+		env->command = START;
+	else if (!ft_strcmp(ln, "##end"))
+		env->command = END;
+	else
+		puterr(ERR_INVALID_COMMAND);
+}
+
 void	parse_line(t_env *env, char *ln)
 {
-	(void)env;
 	if (get_line_type(ln) == COMMAND)
-		return ;
+		parse_command(env, ln);
+	env->command = NONE;
 }
 
 void	read_file(char *name, t_env *env)
 {
-	(void)env;
 	int		fd;
 	int		ret;
 	char	*ln;
