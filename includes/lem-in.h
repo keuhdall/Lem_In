@@ -6,7 +6,7 @@
 /*   By: lmarques <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/09 17:53:42 by lmarques          #+#    #+#             */
-/*   Updated: 2018/02/12 19:47:43 by lmarques         ###   ########.fr       */
+/*   Updated: 2018/02/13 18:32:38 by lmarques         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ typedef struct			s_room_list
 typedef struct			s_room
 {
 	t_room_content		content;
-	t_room_list			neighbors;
+	t_room_list			*neighbors;
 }						t_room;
 
 typedef struct			s_ant
@@ -81,10 +81,15 @@ typedef struct			s_env
 
 void					puterr(int e);
 void					free_split(char **a);
+
 int						get_line_type(char *s);
 void					parse_command(t_env *env, char *ln);
 void					parse_tube(t_env *env, char *ln);
 
+t_room_list				*new_neighbor(t_room *room);
+void					push_neighbor(t_env *env, char *name, t_room_list *new);
+
 t_room					*find_room(t_env *env, char *ln);
+void					add_neighbor(t_env *env, char *room1_name, char *room2_name);
 
 #endif
