@@ -6,11 +6,11 @@
 /*   By: lmarques <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/12 19:09:09 by lmarques          #+#    #+#             */
-/*   Updated: 2018/02/13 18:33:25 by lmarques         ###   ########.fr       */
+/*   Updated: 2018/02/13 18:42:40 by lmarques         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/lem-in.h"
+#include "../includes/lemin.h"
 
 void	parse_command(t_env *env, char *ln)
 {
