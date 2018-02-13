@@ -17,7 +17,7 @@ INC_PATH=./includes
 OBJ_PATH=./objs
 LIBFT_PATH=./libft
 
-SRC_NAME = lem-in.c \
+SRC_NAME = lemin.c \
 			parser.c \
 			utils.c \
 

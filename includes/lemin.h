@@ -6,7 +6,7 @@
 /*   By: lmarques <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/09 17:53:42 by lmarques          #+#    #+#             */
-/*   Updated: 2018/02/13 18:32:38 by lmarques         ###   ########.fr       */
+/*   Updated: 2018/02/13 18:41:01 by lmarques         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,7 @@ t_room_list				*new_neighbor(t_room *room);
 void					push_neighbor(t_env *env, char *name, t_room_list *new);
 
 t_room					*find_room(t_env *env, char *ln);
-void					add_neighbor(t_env *env, char *room1_name, char *room2_name);
+void					add_neighbor(t_env *env, char *room1_name,
+							char *room2_name);
 
 #endif
