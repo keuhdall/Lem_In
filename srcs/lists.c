@@ -6,7 +6,7 @@
 /*   By: lmarques <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/13 17:55:51 by lmarques          #+#    #+#             */
-/*   Updated: 2018/02/13 18:30:49 by lmarques         ###   ########.fr       */
+/*   Updated: 2018/02/13 18:35:39 by lmarques         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ t_room_list	*new_neighbor(t_room *room)
 	return (tmp);
 }
 
-void	push_neighbor(t_env *env, char *name, t_room_list *new)
+void		push_neighbor(t_env *env, char *name, t_room_list *new)
 {
 	int			count;
 	t_room_list	*tmp;
@@ -35,14 +35,14 @@ void	push_neighbor(t_env *env, char *name, t_room_list *new)
 		if (!ft_strcmp(env->rooms[count].content.name, name))
 		{
 			tmp = env->rooms[count].neighbors;
-				if (!tmp)
-					env->rooms[count].neighbors = new;
-				else
-				{
-					while (tmp->next)
-						tmp = tmp->next;
-					tmp->next = new;
-				}
+			if (!tmp)
+				env->rooms[count].neighbors = new;
+			else
+			{
+				while (tmp->next)
+					tmp = tmp->next;
+				tmp->next = new;
+			}
 		}
 	}
 }
