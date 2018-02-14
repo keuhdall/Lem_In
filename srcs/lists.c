@@ -6,11 +6,11 @@
 /*   By: lmarques <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/13 17:55:51 by lmarques          #+#    #+#             */
-/*   Updated: 2018/02/13 18:35:39 by lmarques         ###   ########.fr       */
+/*   Updated: 2018/02/14 22:14:26 by lmarques         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/lem-in.h"
+#include "../includes/lemin.h"
 
 t_room_list	*new_neighbor(t_room *room)
 {

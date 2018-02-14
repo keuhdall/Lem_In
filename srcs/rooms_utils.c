@@ -6,7 +6,7 @@
 /*   By: lmarques <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/12 19:15:40 by lmarques          #+#    #+#             */
-/*   Updated: 2018/02/13 18:42:51 by lmarques         ###   ########.fr       */
+/*   Updated: 2018/02/14 22:16:09 by lmarques         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ void	add_neighbor(t_env *env, char *room1_name, char *room2_name)
 	t_room	*room2;
 	int		count;
 
+	room1 = NULL;
+	room2 = NULL;
 	count = -1;
 	if (!(room1 = find_room(env, room1_name)) ||
 		!(room2 = find_room(env, room2_name)))
