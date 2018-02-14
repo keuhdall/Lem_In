@@ -18,7 +18,10 @@ OBJ_PATH=./objs
 LIBFT_PATH=./libft
 
 SRC_NAME = lemin.c \
+		   lists.c \
 			parser.c \
+			parser2.c \
+			rooms_utils.c \
 			utils.c \
 
 OBJ_NAME = $(SRC_NAME:.c=.o)
