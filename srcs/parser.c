@@ -6,7 +6,7 @@
 /*   By: lmarques <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/09 18:07:54 by lmarques          #+#    #+#             */
-/*   Updated: 2018/02/13 18:42:31 by lmarques         ###   ########.fr       */
+/*   Updated: 2018/02/20 18:56:07 by lmarques         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,4 +37,5 @@ void	read_file(char *name, t_env *env)
 		free(ln);
 	}
 	free(ln);
+	close(fd);
 }
