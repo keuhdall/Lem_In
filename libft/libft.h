@@ -6,7 +6,7 @@
 /*   By: lmarques <lmarques@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/06 23:35:12 by lmarques          #+#    #+#             */
-/*   Updated: 2016/11/30 15:37:15 by lmarques         ###   ########.fr       */
+/*   Updated: 2018/02/20 18:36:25 by lmarques         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ int					ft_isalnum(int c);
 int					ft_isalpha(int c);
 int					ft_isascii(int c);
 int					ft_isdigit(int c);
+int					ft_isstrdigit(const char *s);
 int					ft_isprint(int c);
 char				*ft_itoa(int nb);
 void				ft_lst_push_back(t_list **begin, t_list *list);

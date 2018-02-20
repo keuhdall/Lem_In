@@ -7,6 +7,7 @@ SRC = ft_atoi.c \
 	  ft_isalpha.c \
 	  ft_isascii.c \
 	  ft_isdigit.c \
+	  ft_isstrdigit.c \
 	  ft_isprint.c \
 	  ft_itoa.c \
 	  ft_lst_push_back.c \
