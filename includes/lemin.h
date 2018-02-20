@@ -6,7 +6,7 @@
 /*   By: lmarques <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/09 17:53:42 by lmarques          #+#    #+#             */
-/*   Updated: 2018/02/13 18:41:01 by lmarques         ###   ########.fr       */
+/*   Updated: 2018/02/20 18:55:46 by lmarques         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 
 enum	e_errors
 {
+	ERR_WRONG_ARGS,
 	ERR_FILE_OPEN,
 	ERR_INVALID_COMMAND,
 	ERR_ROOM_NOT_FOUND
@@ -26,6 +27,7 @@ enum	e_errors
 enum	e_line_type
 {
 	COMMAND,
+	ROOM,
 	COMMENT,
 	TUBE,
 	ANT,
@@ -81,6 +83,8 @@ typedef struct			s_env
 
 void					puterr(int e);
 void					free_split(char **a);
+void					init_structs(char *name, t_env *env);
+void					read_file(char *name, t_env *env);
 
 int						get_line_type(char *s);
 void					parse_command(t_env *env, char *ln);
