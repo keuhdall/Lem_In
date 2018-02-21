@@ -6,7 +6,7 @@
 /*   By: lmarques <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/12 19:15:40 by lmarques          #+#    #+#             */
-/*   Updated: 2018/02/14 22:16:09 by lmarques         ###   ########.fr       */
+/*   Updated: 2018/02/21 14:24:58 by lmarques         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,4 +39,19 @@ void	add_neighbor(t_env *env, char *room1_name, char *room2_name)
 		puterr(ERR_ROOM_NOT_FOUND);
 	push_neighbor(env, room1_name, new_neighbor(room2));
 	push_neighbor(env, room2_name, new_neighbor(room1));
+}
+
+void	push_room(t_env *env, char *ln)
+{
+	char	**a;
+	t_room	room;
+
+	a = ft_strsplit(ln, ' ');
+	room.content.name = a[0];
+	room.content.pos.x = ft_atoi(a[1]);
+	room.content.pos.y = ft_atoi(a[2]);
+	room.neighbors = NULL;
+	env->rooms[env->curr_room] = room;
+	env->curr_room++;
+	free_split(a);
 }

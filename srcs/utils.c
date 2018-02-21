@@ -6,7 +6,7 @@
 /*   By: lmarques <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/09 18:10:15 by lmarques          #+#    #+#             */
-/*   Updated: 2018/02/20 18:53:37 by lmarques         ###   ########.fr       */
+/*   Updated: 2018/02/21 14:11:38 by lmarques         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ void	puterr(int e)
 		ft_putendl_fd("Error : invalid command", 2);
 	else if (e == ERR_ROOM_NOT_FOUND)
 		ft_putendl_fd("Error : room not found", 2);
+	else if (e == ERR_MALLOC_FAILED)
+		ft_putendl_fd("Error : failed to allocate memory ; exitting", 2);
 	exit(1);
 }
 

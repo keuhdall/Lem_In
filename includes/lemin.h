@@ -6,7 +6,7 @@
 /*   By: lmarques <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/09 17:53:42 by lmarques          #+#    #+#             */
-/*   Updated: 2018/02/20 18:55:46 by lmarques         ###   ########.fr       */
+/*   Updated: 2018/02/21 14:16:59 by lmarques         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ enum	e_errors
 	ERR_WRONG_ARGS,
 	ERR_FILE_OPEN,
 	ERR_INVALID_COMMAND,
-	ERR_ROOM_NOT_FOUND
+	ERR_ROOM_NOT_FOUND,
+	ERR_MALLOC_FAILED
 };
 
 enum	e_line_type
@@ -75,8 +76,10 @@ typedef struct			s_ant
 typedef struct			s_env
 {
 	int					command;
+	int					curr_room;
 	int					rooms_length;
 	t_room				*rooms;
+	int					curr_ant;
 	int					ants_length;
 	t_ant				*ants;
 }						t_env;
