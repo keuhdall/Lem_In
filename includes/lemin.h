@@ -6,7 +6,7 @@
 /*   By: lmarques <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/09 17:53:42 by lmarques          #+#    #+#             */
-/*   Updated: 2018/02/21 14:32:37 by lmarques         ###   ########.fr       */
+/*   Updated: 2018/02/21 20:13:08 by lmarques         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ enum	e_errors
 	ERR_WRONG_ARGS,
 	ERR_FILE_OPEN,
 	ERR_INVALID_COMMAND,
+	ERR_INVALID_SYNTAX,
 	ERR_ROOM_NOT_FOUND,
 	ERR_MALLOC_FAILED
 };
@@ -31,7 +32,6 @@ enum	e_line_type
 	ROOM,
 	COMMENT,
 	TUBE,
-	ANT,
 	COMMON
 };
 
@@ -95,10 +95,10 @@ void					parse_tube(t_env *env, char *ln);
 
 t_room_list				*new_neighbor(t_room *room);
 void					push_neighbor(t_env *env, char *name, t_room_list *new);
+void					add_neighbor(t_env *env, char *room1_name,
+							char *room2_name);
 
 t_room					*find_room(t_env *env, char *ln);
 void					push_room(t_env *env, char *ln);
-void					add_neighbor(t_env *env, char *room1_name,
-							char *room2_name);
 
 #endif

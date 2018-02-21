@@ -6,19 +6,11 @@
 /*   By: lmarques <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/20 18:05:10 by lmarques          #+#    #+#             */
-/*   Updated: 2018/02/21 14:58:16 by lmarques         ###   ########.fr       */
+/*   Updated: 2018/02/21 20:21:27 by lmarques         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/lemin.h"
-
-void	update_struct_size(t_env *env, char *ln)
-{
-	if (get_line_type(ln) == ANT)
-		env->ants_length++;
-	else if (get_line_type(ln) == ROOM)
-		env->rooms_length++;
-}
 
 void	alloc_arrays(t_env *env)
 {
@@ -35,12 +27,19 @@ void	init_structs(char *name, t_env *env)
 	char	*ln;
 
 	fd = open(name, O_RDONLY);
+	if ((ret = get_next_line(fd, &ln)) == -1)
+		puterr(ERR_FILE_OPEN);
+	else if (!ft_isstrdigit(ln))
+		puterr(ERR_INVALID_SYNTAX);
+	else
+		env->ants_length = ft_atoi(ln);
+	free(ln);
 	while ((ret = get_next_line(fd, &ln)))
 	{
 		if (ret == -1)
 			puterr(ERR_FILE_OPEN);
-		if (ft_strcmp(ln, "") && get_line_type(ln) != COMMENT)
-			update_struct_size(env, ln);
+		if (ft_strcmp(ln, "") && get_line_type(ln) == ROOM)
+			env->rooms_length++;
 		free(ln);
 	}
 	free(ln);

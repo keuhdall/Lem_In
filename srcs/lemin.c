@@ -6,7 +6,7 @@
 /*   By: lmarques <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/09 17:55:10 by lmarques          #+#    #+#             */
-/*   Updated: 2018/02/21 15:16:29 by lmarques         ###   ########.fr       */
+/*   Updated: 2018/02/21 20:21:45 by lmarques         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	print_neighbors(t_room *room)
 	printf("Neighbors : \n");
 	while (rl)
 	{
-		printf("%s\n", rl->content.name);
+		printf("%s %d %d\n", rl->content.name, rl->content.pos.x, rl->content.pos.y);
 		rl = rl->next;
 	}
 }
@@ -37,7 +37,7 @@ int		main(int argc, char *argv[])
 	init_structs(argv[1], &env);
 	read_file(argv[1], &env);
 	for (int i = 0; i < env.rooms_length; i++) {
-		printf("%s\n", env.rooms[i].content.name);
+		printf("Name : %s\n posX : %d posY: %d\n", env.rooms[i].content.name, env.rooms[i].content.pos.x, env.rooms[i].content.pos.y);
 		print_neighbors(&env.rooms[i]);
 		printf("================\n");
 	}
