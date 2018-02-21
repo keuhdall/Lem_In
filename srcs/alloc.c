@@ -6,7 +6,7 @@
 /*   By: lmarques <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/20 18:05:10 by lmarques          #+#    #+#             */
-/*   Updated: 2018/02/21 14:13:45 by lmarques         ###   ########.fr       */
+/*   Updated: 2018/02/21 14:58:16 by lmarques         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@ void	update_struct_size(t_env *env, char *ln)
 
 void	alloc_arrays(t_env *env)
 {
-	if (!((t_room *)malloc(sizeof(t_room) * env->rooms_length)))
+	if (!(env->rooms = (t_room *)malloc(sizeof(t_room) * env->rooms_length)))
 		puterr(ERR_MALLOC_FAILED);
-	if (!((t_ant *)malloc(sizeof(t_ant) * env->ants_length)))
+	if (!(env->ants = (t_ant *)malloc(sizeof(t_ant) * env->ants_length)))
 		puterr(ERR_MALLOC_FAILED);
 }
 
