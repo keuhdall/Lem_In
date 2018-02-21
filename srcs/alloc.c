@@ -6,11 +6,24 @@
 /*   By: lmarques <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/20 18:05:10 by lmarques          #+#    #+#             */
-/*   Updated: 2018/02/21 20:21:27 by lmarques         ###   ########.fr       */
+/*   Updated: 2018/02/21 21:27:46 by lmarques         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/lemin.h"
+
+void	fill_ants(t_env *env)
+{
+	int		count;
+	t_ant	ant;
+
+	count = -1;
+	while (++count < env->ants_length)
+	{
+		ant.id = count;
+		env->ants[count] = ant;
+	}
+}
 
 void	alloc_arrays(t_env *env)
 {
