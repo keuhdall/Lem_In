@@ -6,7 +6,7 @@
 /*   By: lmarques <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/09 18:10:15 by lmarques          #+#    #+#             */
-/*   Updated: 2018/02/21 14:11:38 by lmarques         ###   ########.fr       */
+/*   Updated: 2018/02/21 15:06:48 by lmarques         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ int		get_line_type(char *s)
 		return (TUBE);
 	}
 	free_split(a);
-	a = ft_strsplit(s, ' '); //Might crash
+	a = ft_strsplit(s, ' ');
 	if (get_array_length(a) == 3 && ft_isstrdigit(a[1]) && ft_isstrdigit(a[2]))
 	{
 		free_split(a);

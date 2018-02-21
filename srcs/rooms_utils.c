@@ -6,12 +6,12 @@
 /*   By: lmarques <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/12 19:15:40 by lmarques          #+#    #+#             */
-/*   Updated: 2018/02/21 15:02:39 by lmarques         ###   ########.fr       */
+/*   Updated: 2018/02/21 15:06:27 by lmarques         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/lemin.h"
-#include <stdio.h>
+
 t_room	*find_room(t_env *env, char *name)
 {
 	int	count;
@@ -51,7 +51,6 @@ void	push_room(t_env *env, char *ln)
 	room.content.pos.x = ft_atoi(a[1]);
 	room.content.pos.y = ft_atoi(a[2]);
 	room.neighbors = NULL;
-	printf("rooms_length : %d ; curr_room : %d\n", env->rooms_length, env->curr_room);
 	env->rooms[env->curr_room] = room;
 	env->curr_room++;
 	free_split(a);
