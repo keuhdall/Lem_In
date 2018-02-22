@@ -6,7 +6,7 @@
 /*   By: lmarques <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/09 17:53:42 by lmarques          #+#    #+#             */
-/*   Updated: 2018/02/22 18:27:31 by lmarques         ###   ########.fr       */
+/*   Updated: 2018/02/23 00:27:24 by lmarques         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,45 +49,34 @@ typedef struct			s_point
 	int					y;
 }						t_point;
 
-typedef struct			s_room_content
+typedef struct			s_room_list
 {
 	char				*name;
 	t_point				pos;
-	struct s_room		*neighbors;
-}						t_room_content;
-
-typedef struct			s_room_list
-{
-	t_room_content		content;
+	struct s_room_list	*neighbors;
 	struct s_room_list	*next;
 }						t_room_list;
-
-typedef struct			s_room
-{
-	t_room_content		content;
-	t_room_list			*neighbors;
-}						t_room;
 
 typedef struct			s_ant
 {
 	int					id;
-	t_room				room;
+	t_room_list			*room;
 }						t_ant;
 
 typedef struct			s_env
 {
 	int					command;
 	int					curr_room;
-	int					rooms_length;
-	t_room				*rooms;
-	t_room				start;
-	t_room				end;
+	t_room_list			*rooms;
+	t_room_list			*start;
+	t_room_list			*end;
 	int					curr_ant;
 	int					ants_length;
 	t_ant				*ants;
 }						t_env;
 
 void					puterr(int e);
+int						get_array_length(char **a);
 void					free_split(char **a);
 void					read_file(char *name, t_env *env);
 
@@ -98,14 +87,11 @@ int						get_line_type(char *s);
 void					parse_command(t_env *env, char *ln);
 void					parse_tube(t_env *env, char *ln);
 
-t_room_list				*new_neighbor(t_room *room);
-void					push_neighbor(t_env *env, char *name, t_room_list *new);
+t_room_list				*new_room(char *ln);
+void					push_room(t_room_list **rooms, t_room_list *new);
+t_room_list				*find_room(t_room_list *rooms, char *ln);
 void					add_neighbor(t_env *env, char *room1_name,
 							char *room2_name);
-
-t_room					create_room(char *ln);
-t_room					*find_room(t_env *env, char *ln);
-void					push_room(t_env *env, char *ln);
 
 void					check_env(t_env *env);
 

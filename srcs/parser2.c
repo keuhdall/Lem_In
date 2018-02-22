@@ -6,7 +6,7 @@
 /*   By: lmarques <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/12 19:09:09 by lmarques          #+#    #+#             */
-/*   Updated: 2018/02/21 20:21:56 by lmarques         ###   ########.fr       */
+/*   Updated: 2018/02/22 23:58:38 by lmarques         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	parse_tube(t_env *env, char *ln)
 	char	**a;
 
 	a = ft_strsplit(ln, '-');
-	if (!find_room(env, a[0]) || !find_room(env, a[1]))
+	if (!find_room(env->rooms, a[0]) || !find_room(env->rooms, a[1]))
 		puterr(ERR_ROOM_NOT_FOUND);
 	add_neighbor(env, a[0], a[1]);
 	free_split(a);

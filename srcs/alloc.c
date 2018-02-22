@@ -6,7 +6,7 @@
 /*   By: lmarques <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/20 18:05:10 by lmarques          #+#    #+#             */
-/*   Updated: 2018/02/22 17:36:18 by lmarques         ###   ########.fr       */
+/*   Updated: 2018/02/22 22:51:53 by lmarques         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,14 +26,6 @@ void	fill_ants(t_env *env)
 	}
 }
 
-void	alloc_arrays(t_env *env)
-{
-	if (!(env->rooms = (t_room *)malloc(sizeof(t_room) * env->rooms_length)))
-		puterr(ERR_MALLOC_FAILED);
-	if (!(env->ants = (t_ant *)malloc(sizeof(t_ant) * env->ants_length)))
-		puterr(ERR_MALLOC_FAILED);
-}
-
 void	init_structs(char *name, t_env *env)
 {
 	int		fd;
@@ -48,15 +40,7 @@ void	init_structs(char *name, t_env *env)
 	else
 		env->ants_length = ft_atoi(ln);
 	free(ln);
-	while ((ret = get_next_line(fd, &ln)))
-	{
-		if (ret == -1)
-			puterr(ERR_FILE_OPEN);
-		if (ft_strcmp(ln, "") && get_line_type(ln) == ROOM)
-			env->rooms_length++;
-		free(ln);
-	}
-	free(ln);
 	close(fd);
-	alloc_arrays(env);
+	if (!(env->ants = (t_ant *)malloc(sizeof(t_ant) * env->ants_length)))
+		puterr(ERR_MALLOC_FAILED);
 }

@@ -6,7 +6,7 @@
 /*   By: lmarques <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/09 18:07:54 by lmarques          #+#    #+#             */
-/*   Updated: 2018/02/22 17:23:54 by lmarques         ###   ########.fr       */
+/*   Updated: 2018/02/23 00:27:48 by lmarques         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,25 @@
 
 void	parse_line(t_env *env, char *ln)
 {
+	t_room_list *room;
+
+	room = NULL;
 	if (get_line_type(ln) == COMMAND)
 		parse_command(env, ln);
 	else if (get_line_type(ln) == TUBE)
 		parse_tube(env, ln);
 	else if (get_line_type(ln) == ROOM)
 	{
+		room = new_room(ln);
 		if (env->command != NONE)
 		{
 			if (env->command == START)
-				env->start = create_room(ln);
+				env->start = room;
 			else if (env->command == END)
-				env->end = create_room(ln);
+				env->end = room;
 			env->command = NONE;
 		}
-		push_room(env, ln);
+		push_room(&env->rooms, room);
 	}
 }
 

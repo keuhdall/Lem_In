@@ -6,7 +6,7 @@
 #*   By: lmarques <lmarques@student.42.fr>          +#+  +:+       +#+        *#
 #*                                                +#+#+#+#+#+   +#+           *#
 #*   Created: 2017/11/19 05:25:46 by lmarques          #+#    #+#             *#
-#*   Updated: 2018/02/10 02:27:47 by lmarques         ###   ########.fr       *#
+#*   Updated: 2018/02/22 23:05:14 by lmarques         ###   ########.fr       *#
 #*                                                                            *#
 #* ************************************************************************** *#
 
@@ -18,9 +18,8 @@ OBJ_PATH=./objs
 LIBFT_PATH=./libft
 
 SRC_NAME = lemin.c \
-		   alloc.c \
-		   checker.c \
-		   lists.c \
+			alloc.c \
+			checker.c \
 			parser.c \
 			parser2.c \
 			rooms_utils.c \
