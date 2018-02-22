@@ -6,11 +6,24 @@
 /*   By: lmarques <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/12 19:15:40 by lmarques          #+#    #+#             */
-/*   Updated: 2018/02/21 20:22:00 by lmarques         ###   ########.fr       */
+/*   Updated: 2018/02/22 17:18:34 by lmarques         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/lemin.h"
+
+t_room	create_room(char *ln)
+{
+	char	**a;
+	t_room	room;
+
+	a = ft_strsplit(ln, ' ');
+	room.content.name = a[0];
+	room.content.pos.x = ft_atoi(a[1]);
+	room.content.pos.y = ft_atoi(a[2]);
+	room.neighbors = NULL;
+	return (room);
+}
 
 t_room	*find_room(t_env *env, char *name)
 {
@@ -43,15 +56,6 @@ void	add_neighbor(t_env *env, char *room1_name, char *room2_name)
 
 void	push_room(t_env *env, char *ln)
 {
-	char	**a;
-	t_room	room;
-
-	a = ft_strsplit(ln, ' ');
-	room.content.name = ft_strdup(a[0]);
-	room.content.pos.x = ft_atoi(a[1]);
-	room.content.pos.y = ft_atoi(a[2]);
-	room.neighbors = NULL;
-	env->rooms[env->curr_room] = room;
+	env->rooms[env->curr_room] = create_room(ln);
 	env->curr_room++;
-	free_split(a);
 }

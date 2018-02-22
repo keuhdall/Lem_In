@@ -6,7 +6,7 @@
 /*   By: lmarques <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/09 18:10:15 by lmarques          #+#    #+#             */
-/*   Updated: 2018/02/21 20:22:13 by lmarques         ###   ########.fr       */
+/*   Updated: 2018/02/22 17:34:53 by lmarques         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ void	puterr(int e)
 		ft_putendl_fd("Error : invalid command", 2);
 	else if (e == ERR_INVALID_SYNTAX)
 		ft_putendl_fd("Error : invalid syntax", 2);
+	else if (e == ERR_INVALID_STRUCT)
+		ft_putendl_fd("Error : invalid struct : you either don't have declared any start/end ; created any room / ant ; or didn't link your rooms correctly", 2);
 	else if (e == ERR_ROOM_NOT_FOUND)
 		ft_putendl_fd("Error : room not found", 2);
 	else if (e == ERR_MALLOC_FAILED)

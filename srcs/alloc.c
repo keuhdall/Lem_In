@@ -6,7 +6,7 @@
 /*   By: lmarques <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/20 18:05:10 by lmarques          #+#    #+#             */
-/*   Updated: 2018/02/21 21:27:46 by lmarques         ###   ########.fr       */
+/*   Updated: 2018/02/22 17:36:18 by lmarques         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ void	fill_ants(t_env *env)
 	while (++count < env->ants_length)
 	{
 		ant.id = count;
+		ant.room = env->start;
 		env->ants[count] = ant;
 	}
 }

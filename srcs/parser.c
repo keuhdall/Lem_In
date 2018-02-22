@@ -6,7 +6,7 @@
 /*   By: lmarques <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/09 18:07:54 by lmarques          #+#    #+#             */
-/*   Updated: 2018/02/21 20:21:51 by lmarques         ###   ########.fr       */
+/*   Updated: 2018/02/22 17:23:54 by lmarques         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,20 @@ void	parse_line(t_env *env, char *ln)
 {
 	if (get_line_type(ln) == COMMAND)
 		parse_command(env, ln);
-	env->command = NONE;
-	if (get_line_type(ln) == TUBE)
+	else if (get_line_type(ln) == TUBE)
 		parse_tube(env, ln);
-	if (get_line_type(ln) == ROOM)
+	else if (get_line_type(ln) == ROOM)
+	{
+		if (env->command != NONE)
+		{
+			if (env->command == START)
+				env->start = create_room(ln);
+			else if (env->command == END)
+				env->end = create_room(ln);
+			env->command = NONE;
+		}
 		push_room(env, ln);
+	}
 }
 
 void	read_file(char *name, t_env *env)
