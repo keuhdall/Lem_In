@@ -6,7 +6,7 @@
 /*   By: lmarques <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/09 17:53:42 by lmarques          #+#    #+#             */
-/*   Updated: 2018/02/21 20:13:08 by lmarques         ###   ########.fr       */
+/*   Updated: 2018/02/22 18:24:12 by lmarques         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ enum	e_errors
 	ERR_FILE_OPEN,
 	ERR_INVALID_COMMAND,
 	ERR_INVALID_SYNTAX,
+	ERR_INVALID_STRUCT,
 	ERR_ROOM_NOT_FOUND,
 	ERR_MALLOC_FAILED
 };
@@ -70,7 +71,7 @@ typedef struct			s_room
 typedef struct			s_ant
 {
 	int					id;
-	t_room				pos;
+	t_room				room;
 }						t_ant;
 
 typedef struct			s_env
@@ -79,6 +80,8 @@ typedef struct			s_env
 	int					curr_room;
 	int					rooms_length;
 	t_room				*rooms;
+	t_room				start;
+	t_room				end;
 	int					curr_ant;
 	int					ants_length;
 	t_ant				*ants;
@@ -98,7 +101,10 @@ void					push_neighbor(t_env *env, char *name, t_room_list *new);
 void					add_neighbor(t_env *env, char *room1_name,
 							char *room2_name);
 
+t_room					create_room(char *ln);
 t_room					*find_room(t_env *env, char *ln);
 void					push_room(t_env *env, char *ln);
+
+void					check_env(t_env *env);
 
 #endif

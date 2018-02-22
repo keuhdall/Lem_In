@@ -19,6 +19,7 @@ LIBFT_PATH=./libft
 
 SRC_NAME = lemin.c \
 		   alloc.c \
+		   checker.c \
 		   lists.c \
 			parser.c \
 			parser2.c \
