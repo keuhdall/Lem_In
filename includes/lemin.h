@@ -6,7 +6,7 @@
 /*   By: lmarques <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/09 17:53:42 by lmarques          #+#    #+#             */
-/*   Updated: 2018/02/22 18:24:12 by lmarques         ###   ########.fr       */
+/*   Updated: 2018/02/22 18:27:31 by lmarques         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,8 +89,10 @@ typedef struct			s_env
 
 void					puterr(int e);
 void					free_split(char **a);
-void					init_structs(char *name, t_env *env);
 void					read_file(char *name, t_env *env);
+
+void					init_structs(char *name, t_env *env);
+void					fill_ants(t_env *env);
 
 int						get_line_type(char *s);
 void					parse_command(t_env *env, char *ln);
