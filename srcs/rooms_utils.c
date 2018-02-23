@@ -6,7 +6,7 @@
 /*   By: lmarques <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/12 19:15:40 by lmarques          #+#    #+#             */
-/*   Updated: 2018/02/23 00:31:58 by lmarques         ###   ########.fr       */
+/*   Updated: 2018/02/23 01:34:37 by lmarques         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,9 @@ void		push_room(t_room_list **rooms, t_room_list *new)
 		*rooms = new;
 	else
 	{
-		while (tmp)
+		while (tmp->next)
 			tmp = tmp->next;
-		tmp = new;
+		tmp->next = new;
 	}
 }
 
@@ -59,12 +59,12 @@ t_room_list	*find_room(t_room_list *rooms, char *name)
 	return (NULL);
 }
 
-void		push_neighbor(t_room_list **rooms, char *name, t_room_list *new)
+void		push_neighbor(t_room_list *rooms, char *name, t_room_list *new)
 {
 	t_room_list	*tmp_rooms;
 	t_room_list	*tmp_neighbors;
 
-	tmp_rooms = *rooms;
+	tmp_rooms = rooms;
 	tmp_neighbors = NULL;
 	while (tmp_rooms)
 	{
@@ -78,9 +78,9 @@ void		push_neighbor(t_room_list **rooms, char *name, t_room_list *new)
 			}
 			else
 			{
-				while (tmp_neighbors)
+				while (tmp_neighbors->next)
 					tmp_neighbors = tmp_neighbors->next;
-				tmp_neighbors = new;
+				tmp_neighbors->next = new;
 				return ;
 			}
 		}
@@ -100,6 +100,6 @@ void	add_neighbor(t_env *env, char *room1_name, char *room2_name)
 	if (!(room1 = find_room(env->rooms, room1_name)) ||
 		!(room2 = find_room(env->rooms, room2_name)))
 		puterr(ERR_ROOM_NOT_FOUND);
-	push_neighbor(&env->rooms, room1_name, room2);
-	push_neighbor(&env->rooms, room2_name, room1);
+	push_neighbor(env->rooms, room1_name, room2);
+	push_neighbor(env->rooms, room2_name, room1);
 }
