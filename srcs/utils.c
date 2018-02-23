@@ -6,7 +6,7 @@
 /*   By: lmarques <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/09 18:10:15 by lmarques          #+#    #+#             */
-/*   Updated: 2018/02/22 23:42:56 by lmarques         ###   ########.fr       */
+/*   Updated: 2018/02/23 13:16:38 by lmarques         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,10 @@ int		get_line_type(char *s)
 		return (-1);
 	a = ft_strsplit(s, '-');
 	if (ft_strlen(s) >= 2 && s[0] == '#')
+	{
+		free_split(a);
 		return (s[1] == '#' ? COMMAND : COMMENT);
+	}
 	else if (get_array_length(a) == 2)
 	{
 		free_split(a);
