@@ -6,7 +6,7 @@
 /*   By: lmarques <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/09 17:55:10 by lmarques          #+#    #+#             */
-/*   Updated: 2018/02/23 00:32:13 by lmarques         ###   ########.fr       */
+/*   Updated: 2018/02/23 01:22:49 by lmarques         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int		main(int argc, char *argv[])
 	tmp = *(&env.rooms);
 	while (tmp)
 	{
-		printf("Name : %s\n posX : %d posY: %d\n", tmp->name, tmp->pos.x, tmp->pos.y);
+		printf("Name : %s posX : %d posY: %d\n", tmp->name, tmp->pos.x, tmp->pos.y);
 		print_neighbors(tmp);
 		printf("================\n");
 		tmp = tmp->next;
