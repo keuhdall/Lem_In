@@ -6,12 +6,11 @@
 /*   By: lmarques <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/12 19:15:40 by lmarques          #+#    #+#             */
-/*   Updated: 2018/02/23 11:30:54 by lmarques         ###   ########.fr       */
+/*   Updated: 2018/02/23 11:33:24 by lmarques         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/lemin.h"
-#include <stdio.h>
 
 t_room_list	*new_room(char *ln)
 {
