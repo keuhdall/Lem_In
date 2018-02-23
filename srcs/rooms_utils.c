@@ -6,7 +6,7 @@
 /*   By: lmarques <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/12 19:15:40 by lmarques          #+#    #+#             */
-/*   Updated: 2018/02/23 11:33:24 by lmarques         ###   ########.fr       */
+/*   Updated: 2018/02/23 13:20:14 by lmarques         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ void		add_neighbor(t_env *env, char *room1_name, char *room2_name)
 {
 	t_room_list	*room1;
 	t_room_list	*room2;
-	int		count;
+	int			count;
 
 	room1 = NULL;
 	room2 = NULL;
