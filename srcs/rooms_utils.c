@@ -6,7 +6,7 @@
 /*   By: lmarques <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/12 19:15:40 by lmarques          #+#    #+#             */
-/*   Updated: 2018/02/23 01:34:37 by lmarques         ###   ########.fr       */
+/*   Updated: 2018/02/23 01:57:40 by lmarques         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ t_room_list	*find_room(t_room_list *rooms, char *name)
 void		push_neighbor(t_room_list *rooms, char *name, t_room_list *new)
 {
 	t_room_list	*tmp_rooms;
-	t_room_list	*tmp_neighbors;
+	t_room_list	**tmp_neighbors;
 
 	tmp_rooms = rooms;
 	tmp_neighbors = NULL;
@@ -70,17 +70,17 @@ void		push_neighbor(t_room_list *rooms, char *name, t_room_list *new)
 	{
 		if (!ft_strcmp(tmp_rooms->name, name))
 		{
-			tmp_neighbors = *(&tmp_rooms->neighbors);
-			if (!tmp_neighbors)
+			tmp_neighbors = &tmp_rooms->neighbors;
+			if (!*tmp_neighbors)
 			{
-				tmp_neighbors->neighbors = new;
+				*tmp_neighbors = new;
 				return ;
 			}
 			else
 			{
-				while (tmp_neighbors->next)
-					tmp_neighbors = tmp_neighbors->next;
-				tmp_neighbors->next = new;
+				while ((*tmp_neighbors)->next)
+					*tmp_neighbors = (*tmp_neighbors)->next;
+				(*tmp_neighbors)->next = new;
 				return ;
 			}
 		}
