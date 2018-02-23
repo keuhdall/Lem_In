@@ -6,7 +6,7 @@
 /*   By: lmarques <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/09 17:53:42 by lmarques          #+#    #+#             */
-/*   Updated: 2018/02/23 00:37:34 by lmarques         ###   ########.fr       */
+/*   Updated: 2018/02/23 11:16:18 by lmarques         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,8 @@ typedef struct			s_room_list
 {
 	char				*name;
 	t_point				pos;
-	struct s_room_list	*neighbors;
+	int					neighbors_size;
+	struct s_room_list	**neighbors;
 	struct s_room_list	*next;
 }						t_room_list;
 

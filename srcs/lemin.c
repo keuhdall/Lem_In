@@ -6,7 +6,7 @@
 /*   By: lmarques <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/09 17:55:10 by lmarques          #+#    #+#             */
-/*   Updated: 2018/02/23 01:22:49 by lmarques         ###   ########.fr       */
+/*   Updated: 2018/02/23 11:24:18 by lmarques         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,10 @@
 
 void	print_neighbors(t_room_list *room)
 {
-	t_room_list	*rl;
-	rl = NULL;
-	rl = room->neighbors;
 	printf("Neighbors : \n");
-	while (rl)
+	for (int i = 0; i < room->neighbors_size; i++)
 	{
-		printf("%s %d %d\n", rl->name, rl->pos.x, rl->pos.y);
-		rl = rl->next;
+		printf("%s %d %d\n", room->neighbors[i]->name, room->neighbors[i]->pos.x, room->neighbors[i]->pos.y);
 	}
 }
 

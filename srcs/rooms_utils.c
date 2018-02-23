@@ -6,7 +6,7 @@
 /*   By: lmarques <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/12 19:15:40 by lmarques          #+#    #+#             */
-/*   Updated: 2018/02/23 01:57:40 by lmarques         ###   ########.fr       */
+/*   Updated: 2018/02/23 11:30:54 by lmarques         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ t_room_list	*new_room(char *ln)
 	tmp->name = ft_strdup(a[0]);
 	tmp->pos.x = ft_atoi(a[1]);
 	tmp->pos.y = ft_atoi(a[2]);
+	tmp->neighbors_size = 0;
 	tmp->neighbors = NULL;
 	tmp->next = NULL;
 	free_split(a);
@@ -61,34 +62,23 @@ t_room_list	*find_room(t_room_list *rooms, char *name)
 
 void		push_neighbor(t_room_list *rooms, char *name, t_room_list *new)
 {
-	t_room_list	*tmp_rooms;
-	t_room_list	**tmp_neighbors;
+	t_room_list	*tmp;
 
-	tmp_rooms = rooms;
-	tmp_neighbors = NULL;
-	while (tmp_rooms)
+	tmp = rooms;
+	while (tmp)
 	{
-		if (!ft_strcmp(tmp_rooms->name, name))
+		if (!ft_strcmp(tmp->name, name))
 		{
-			tmp_neighbors = &tmp_rooms->neighbors;
-			if (!*tmp_neighbors)
-			{
-				*tmp_neighbors = new;
-				return ;
-			}
-			else
-			{
-				while ((*tmp_neighbors)->next)
-					*tmp_neighbors = (*tmp_neighbors)->next;
-				(*tmp_neighbors)->next = new;
-				return ;
-			}
+			tmp->neighbors_size++;
+			tmp->neighbors = ft_realloc(tmp->neighbors,
+				sizeof(t_room_list) * tmp->neighbors_size);
+			tmp->neighbors[tmp->neighbors_size - 1] = new;
 		}
-		tmp_rooms = tmp_rooms->next;
+		tmp = tmp->next;
 	}
 }
 
-void	add_neighbor(t_env *env, char *room1_name, char *room2_name)
+void		add_neighbor(t_env *env, char *room1_name, char *room2_name)
 {
 	t_room_list	*room1;
 	t_room_list	*room2;
