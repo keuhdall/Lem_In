@@ -6,7 +6,7 @@
 /*   By: lmarques <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/12 19:15:40 by lmarques          #+#    #+#             */
-/*   Updated: 2018/02/23 13:20:14 by lmarques         ###   ########.fr       */
+/*   Updated: 2018/03/02 00:02:25 by lmarques         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ t_room_list	*new_room(char *ln)
 		return (NULL);
 	a = ft_strsplit(ln, ' ');
 	tmp->name = ft_strdup(a[0]);
+	tmp->visited = 0;
 	tmp->pos.x = ft_atoi(a[1]);
 	tmp->pos.y = ft_atoi(a[2]);
 	tmp->neighbors_size = 0;

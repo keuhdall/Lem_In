@@ -6,7 +6,7 @@
 /*   By: lmarques <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/09 17:53:42 by lmarques          #+#    #+#             */
-/*   Updated: 2018/02/23 11:16:18 by lmarques         ###   ########.fr       */
+/*   Updated: 2018/03/01 23:54:32 by lmarques         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ typedef struct			s_room_list
 {
 	char				*name;
 	t_point				pos;
+	char				visited;
 	int					neighbors_size;
 	struct s_room_list	**neighbors;
 	struct s_room_list	*next;
@@ -85,7 +86,6 @@ void					read_file(char *name, t_env *env);
 void					init_structs(char *name, t_env *env);
 void					fill_ants(t_env *env);
 
-
 t_room_list				*new_room(char *ln);
 void					push_room(t_room_list **rooms, t_room_list *new);
 t_room_list				*find_room(t_room_list *rooms, char *ln);
@@ -93,5 +93,8 @@ void					add_neighbor(t_env *env, char *room1_name,
 							char *room2_name);
 
 void					check_env(t_env *env);
+int						check_path_to_end(t_env *env, t_room_list *curr);
+
+void					clear_visited(t_env *env);
 
 #endif

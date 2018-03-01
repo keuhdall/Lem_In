@@ -6,7 +6,7 @@
 #*   By: lmarques <lmarques@student.42.fr>          +#+  +:+       +#+        *#
 #*                                                +#+#+#+#+#+   +#+           *#
 #*   Created: 2017/11/19 05:25:46 by lmarques          #+#    #+#             *#
-#*   Updated: 2018/02/23 00:42:34 by lmarques         ###   ########.fr       *#
+#*   Updated: 2018/03/01 23:54:55 by lmarques         ###   ########.fr       *#
 #*                                                                            *#
 #* ************************************************************************** *#
 
@@ -19,6 +19,7 @@ LIBFT_PATH=./libft
 
 SRC_NAME = lemin.c \
 			alloc.c \
+			browse.c \
 			checker.c \
 			parser.c \
 			rooms_utils.c \
