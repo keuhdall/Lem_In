@@ -6,15 +6,29 @@
 /*   By: lmarques <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/22 17:25:53 by lmarques          #+#    #+#             */
-/*   Updated: 2018/02/22 23:30:12 by lmarques         ###   ########.fr       */
+/*   Updated: 2018/03/02 00:03:50 by lmarques         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/lemin.h"
 
-int		check_path_to_end(t_env *env)
+int		check_path_to_end(t_env *env, t_room_list *curr)
 {
-	return (env ? 1 : 0);
+	int	count;
+
+	count = -1;
+	curr->visited = 1;
+	if (curr == env->end)
+		return (1);
+	while (++count < curr->neighbors_size)
+	{
+		if (!curr->neighbors[count]->visited)
+		{
+			if (check_path_to_end(env, curr->neighbors[count]))
+				return (1);
+		}
+	}
+	return (0);
 }
 
 void	check_env(t_env *env)

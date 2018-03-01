@@ -6,7 +6,7 @@
 /*   By: lmarques <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/09 17:55:10 by lmarques          #+#    #+#             */
-/*   Updated: 2018/02/23 11:24:18 by lmarques         ###   ########.fr       */
+/*   Updated: 2018/03/02 00:00:25 by lmarques         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,5 +45,11 @@ int		main(int argc, char *argv[])
 	for (int i = 0; i < env.ants_length; i++) {
 		printf("ant ID : %d is in room : %s\n", env.ants[i].id, env.ants[i].room->name);
 	}
+	printf("Start is : %s\n", env.start->name);
+	printf("End is : %s\n", env.end->name);
+	if (check_path_to_end(&env, env.start))
+		printf("This map is valid !\n");
+	else
+		printf("This map is not valid !\n");
 	return (0);
 }
