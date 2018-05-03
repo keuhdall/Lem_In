@@ -22,6 +22,17 @@ void	print_neighbors(t_room_list *room)
 	}
 }
 
+void	print_path(t_room_list *path)
+{
+	t_room_list	*tmp;
+
+	tmp = path;
+	while (tmp)
+	{
+		printf("Name : %s posX : %d posY: %d\n", tmp->name, tmp->pos.x, tmp->pos.y);
+	}
+}
+
 int		main(int argc, char *argv[])
 {
 	t_env env;
@@ -51,5 +62,7 @@ int		main(int argc, char *argv[])
 		printf("This map is valid !\n");
 	else
 		printf("This map is not valid !\n");
+	dfs(&env, env.start);
+	print_path(env.path);
 	return (0);
 }

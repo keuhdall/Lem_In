@@ -43,4 +43,6 @@ void	init_structs(char *name, t_env *env)
 	close(fd);
 	if (!(env->ants = (t_ant *)malloc(sizeof(t_ant) * env->ants_length)))
 		puterr(ERR_MALLOC_FAILED);
+	env->path = NULL;
+	env->lock_path = 0;
 }

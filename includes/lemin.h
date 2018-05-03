@@ -72,6 +72,8 @@ typedef struct			s_env
 	t_room_list			*rooms;
 	t_room_list			*start;
 	t_room_list			*end;
+	t_room_list			*path;
+	char				lock_path;
 	int					curr_ant;
 	int					ants_length;
 	t_ant				*ants;
@@ -96,5 +98,6 @@ void					check_env(t_env *env);
 int						check_path_to_end(t_env *env, t_room_list *curr);
 
 void					clear_visited(t_env *env);
+int						dfs(t_env *env, t_room_list *curr);
 
 #endif
