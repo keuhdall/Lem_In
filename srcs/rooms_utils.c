@@ -6,7 +6,7 @@
 /*   By: lmarques <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/12 19:15:40 by lmarques          #+#    #+#             */
-/*   Updated: 2018/03/02 00:02:25 by lmarques         ###   ########.fr       */
+/*   Updated: 2018/05/08 19:23:41 by lmarques         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ t_room_list	*new_room(char *ln)
 	tmp->neighbors_size = 0;
 	tmp->neighbors = NULL;
 	tmp->next = NULL;
+	tmp->parent = NULL;
 	free_split(a);
 	return (tmp);
 }
