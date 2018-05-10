@@ -6,7 +6,7 @@
 /*   By: lmarques <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/09 17:55:10 by lmarques          #+#    #+#             */
-/*   Updated: 2018/05/10 19:18:58 by lmarques         ###   ########.fr       */
+/*   Updated: 2018/05/10 20:09:27 by lmarques         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,17 +22,17 @@ void	print_neighbors(t_room_list *room)
 	}
 }
 
-void	print_path(t_room_list *path)
+void	print_path(t_env *env)
 {
 	t_room_list	*tmp;
 
-	tmp = path;
+	tmp = env->end;
 	while (tmp)
 	{
-		printf("Name : %s posX : %d posY: %d\n", tmp->name, tmp->pos.x, tmp->pos.y);
+		printf("Name : %s\n", tmp->name);
+		tmp = tmp->parent;
 	}
 }
-
 void	print_parents(t_env *env)
 {
 	t_room_list	*tmp;
@@ -80,5 +80,7 @@ int		main(int argc, char *argv[])
 	clear_visited(&env);
 	set_parents(&env);
 	print_parents(&env);
+	printf("===================\n");
+	print_path(&env);
 	return (0);
 }
