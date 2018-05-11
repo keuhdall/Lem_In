@@ -6,7 +6,7 @@
 /*   By: lmarques <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/20 18:05:10 by lmarques          #+#    #+#             */
-/*   Updated: 2018/02/22 22:51:53 by lmarques         ###   ########.fr       */
+/*   Updated: 2018/05/11 03:49:02 by lmarques         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,5 +44,4 @@ void	init_structs(char *name, t_env *env)
 	if (!(env->ants = (t_ant *)malloc(sizeof(t_ant) * env->ants_length)))
 		puterr(ERR_MALLOC_FAILED);
 	env->path = NULL;
-	env->lock_path = 0;
 }

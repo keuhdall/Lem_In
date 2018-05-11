@@ -6,7 +6,7 @@
 /*   By: lmarques <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/09 17:53:42 by lmarques          #+#    #+#             */
-/*   Updated: 2018/05/10 19:10:50 by lmarques         ###   ########.fr       */
+/*   Updated: 2018/05/11 03:48:51 by lmarques         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,8 +75,7 @@ typedef struct			s_env
 	t_room_list			*rooms;
 	t_room_list			*start;
 	t_room_list			*end;
-	t_room_list			*path;
-	char				lock_path;
+	t_room_list			**path;
 	int					curr_ant;
 	int					ants_length;
 	t_ant				*ants;
