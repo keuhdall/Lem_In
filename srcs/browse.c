@@ -6,7 +6,7 @@
 /*   By: lmarques <lmarques@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/01 18:25:28 by lmarques          #+#    #+#             */
-/*   Updated: 2018/05/10 19:37:12 by lmarques         ###   ########.fr       */
+/*   Updated: 2018/05/12 23:56:16 by lmarques         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,18 +63,5 @@ void	set_parents(t_env *env)
 			get_parent(env->start, tmp);
 		clear_visited(env);
 		tmp = tmp->next;
-	}
-}
-
-void	dfs(t_env *env, t_room_list *curr)
-{
-	int	count;
-
-	count = -1;
-	curr->visited = 1;
-	while (++count < curr->neighbors_size)
-	{
-		if (!curr->neighbors[count]->visited)
-			dfs(env, curr->neighbors[count]);
 	}
 }

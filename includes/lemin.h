@@ -6,7 +6,7 @@
 /*   By: lmarques <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/09 17:53:42 by lmarques          #+#    #+#             */
-/*   Updated: 2018/05/12 23:07:49 by lmarques         ###   ########.fr       */
+/*   Updated: 2018/05/13 00:04:59 by lmarques         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,6 +102,5 @@ void					clear_visited(t_env *env);
 void					set_path(t_env *env);
 void					set_parents(t_env *env);
 int						get_parent(t_room_list *parent, t_room_list *child);
-void					dfs(t_env *env, t_room_list *curr);
 
 #endif
