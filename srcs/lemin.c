@@ -6,7 +6,7 @@
 /*   By: lmarques <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/09 17:55:10 by lmarques          #+#    #+#             */
-/*   Updated: 2018/05/10 20:09:27 by lmarques         ###   ########.fr       */
+/*   Updated: 2018/05/12 23:42:05 by lmarques         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,10 @@ int		main(int argc, char *argv[])
 	set_parents(&env);
 	print_parents(&env);
 	printf("===================\n");
-	print_path(&env);
+	//print_path(&env);
+	set_path(&env);
+	for (int i = 0; i < env.path_size; i++) {
+		printf("Name : %s\n", env.path[i]->name);
+	}
 	return (0);
 }

@@ -22,6 +22,7 @@ SRC_NAME = lemin.c \
 			browse.c \
 			checker.c \
 			parser.c \
+			path.c \
 			rooms_utils.c \
 			utils.c \
 

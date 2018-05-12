@@ -6,7 +6,7 @@
 /*   By: lmarques <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/09 17:53:42 by lmarques          #+#    #+#             */
-/*   Updated: 2018/05/11 03:48:51 by lmarques         ###   ########.fr       */
+/*   Updated: 2018/05/12 23:07:49 by lmarques         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,8 +56,6 @@ typedef struct			s_room_list
 	char				visited;
 	int					neighbors_size;
 	struct s_room_list	**neighbors;
-	int					path_size;
-	struct s_room_list	**path;
 	struct s_room_list	*next;
 	struct s_room_list	*parent;
 }						t_room_list;
@@ -75,6 +73,7 @@ typedef struct			s_env
 	t_room_list			*rooms;
 	t_room_list			*start;
 	t_room_list			*end;
+	int					path_size;
 	t_room_list			**path;
 	int					curr_ant;
 	int					ants_length;
@@ -100,6 +99,7 @@ void					check_env(t_env *env);
 int						check_path_to_end(t_env *env, t_room_list *curr);
 
 void					clear_visited(t_env *env);
+void					set_path(t_env *env);
 void					set_parents(t_env *env);
 int						get_parent(t_room_list *parent, t_room_list *child);
 void					dfs(t_env *env, t_room_list *curr);
