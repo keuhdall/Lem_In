@@ -6,7 +6,7 @@
 #*   By: lmarques <lmarques@student.42.fr>          +#+  +:+       +#+        *#
 #*                                                +#+#+#+#+#+   +#+           *#
 #*   Created: 2017/11/19 05:25:46 by lmarques          #+#    #+#             *#
-#*   Updated: 2018/03/01 23:54:55 by lmarques         ###   ########.fr       *#
+#*   Updated: 2018/05/13 05:14:14 by lmarques         ###   ########.fr       *#
 #*                                                                            *#
 #* ************************************************************************** *#
 
@@ -21,6 +21,7 @@ SRC_NAME = lemin.c \
 			alloc.c \
 			browse.c \
 			checker.c \
+			move.c \
 			parser.c \
 			path.c \
 			rooms_utils.c \
