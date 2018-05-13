@@ -6,7 +6,7 @@
 /*   By: lmarques <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/09 17:55:10 by lmarques          #+#    #+#             */
-/*   Updated: 2018/05/12 23:42:05 by lmarques         ###   ########.fr       */
+/*   Updated: 2018/05/13 04:11:15 by lmarques         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ int		main(int argc, char *argv[])
 		printf("================\n");
 		tmp = tmp->next;
 	}
-	for (int i = 0; i < env.ants_length; i++) {
+	for (int i = 0; i < env.ants_size; i++) {
 		printf("ant ID : %d is in room : %s\n", env.ants[i].id, env.ants[i].room->name);
 	}
 	printf("Start is : %s\n", env.start->name);

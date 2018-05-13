@@ -6,7 +6,7 @@
 /*   By: lmarques <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/09 17:53:42 by lmarques          #+#    #+#             */
-/*   Updated: 2018/05/13 00:04:59 by lmarques         ###   ########.fr       */
+/*   Updated: 2018/05/13 04:10:01 by lmarques         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ typedef struct			s_env
 	int					path_size;
 	t_room_list			**path;
 	int					curr_ant;
-	int					ants_length;
+	int					ants_size;
 	t_ant				*ants;
 }						t_env;
 

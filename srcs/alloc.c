@@ -6,7 +6,7 @@
 /*   By: lmarques <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/20 18:05:10 by lmarques          #+#    #+#             */
-/*   Updated: 2018/05/11 03:49:02 by lmarques         ###   ########.fr       */
+/*   Updated: 2018/05/13 04:10:19 by lmarques         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	fill_ants(t_env *env)
 	t_ant	ant;
 
 	count = -1;
-	while (++count < env->ants_length)
+	while (++count < env->ants_size)
 	{
 		ant.id = count;
 		ant.room = env->start;
@@ -38,10 +38,10 @@ void	init_structs(char *name, t_env *env)
 	else if (!ft_isstrdigit(ln))
 		puterr(ERR_INVALID_SYNTAX);
 	else
-		env->ants_length = ft_atoi(ln);
+		env->ants_size = ft_atoi(ln);
 	free(ln);
 	close(fd);
-	if (!(env->ants = (t_ant *)malloc(sizeof(t_ant) * env->ants_length)))
+	if (!(env->ants = (t_ant *)malloc(sizeof(t_ant) * env->ants_size)))
 		puterr(ERR_MALLOC_FAILED);
 	env->path = NULL;
 }
