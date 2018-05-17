@@ -6,7 +6,7 @@
 /*   By: lmarques <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/17 23:02:00 by lmarques          #+#    #+#             */
-/*   Updated: 2018/05/17 23:11:55 by lmarques         ###   ########.fr       */
+/*   Updated: 2018/05/17 23:41:08 by lmarques         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	default_print(t_env *env, int farest, int count)
 {
-	ft_printf("L%d-%s", farest + count,
+	ft_printf("L%d-%s ", farest + count,
 		get_next_room(env, env->ants[farest + count])->name);
 }
 
