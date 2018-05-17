@@ -16,6 +16,7 @@ SRC_PATH=./srcs
 INC_PATH=./includes
 OBJ_PATH=./objs
 LIBFT_PATH=./libft
+PRINTF_PATH=./libft/ft_printf
 
 SRC_NAME = lemin.c \
 			alloc.c \
@@ -24,6 +25,7 @@ SRC_NAME = lemin.c \
 			move.c \
 			parser.c \
 			path.c \
+			print.c \
 			rooms_utils.c \
 			utils.c \
 
@@ -39,19 +41,22 @@ all: $(NAME)
 
 $(NAME): $(OBJ)
 	make -C $(LIBFT_PATH)
-	$(CC) $^ -o $@ -L$(LIBFT_PATH) -lft
+	make -C $(PRINTF_PATH)
+	$(CC) $^ -o $@ -L$(LIBFT_PATH) -lft -L $(PRINTF_PATH) -lftprintf
 
 $(OBJ_PATH)/%.o: $(SRC_PATH)/%.c
 	@mkdir $(OBJ_PATH) 2> /dev/null || true
-	$(CC) -o $@ -c $< $(CFLAGS) -I$(INC_PATH) -I$(LIBFT_PATH)
+	$(CC) -o $@ -c $< $(CFLAGS) -I$(INC_PATH) -I$(LIBFT_PATH) -I $(PRINTF_PATH)
 
 clean:
 	rm -fv $(OBJ)
 		@rmdir $(OBJ_PATH) 2> /dev/null || true
 		make -C $(LIBFT_PATH) clean
+		make -C $(PRINTF_PATH) clean
 
 fclean: clean
 	make -C $(LIBFT_PATH) fclean
+	make -C $(PRINTF_PATH) fclean
 	rm -fv $(NAME)
 
 re:fclean all

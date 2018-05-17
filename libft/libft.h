@@ -6,7 +6,7 @@
 /*   By: lmarques <lmarques@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/06 23:35:12 by lmarques          #+#    #+#             */
-/*   Updated: 2018/02/23 11:13:57 by lmarques         ###   ########.fr       */
+/*   Updated: 2018/05/17 22:55:43 by lmarques         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ typedef struct		s_list
 }					t_list;
 
 int					ft_atoi(const char *str);
+int					ft_atoi_addr(char **s);
 void				ft_bzero(void *s, size_t n);
 char				*ft_epur_str(char *str);
 int					ft_isalnum(int c);
@@ -63,6 +64,7 @@ void				*ft_realloc(void *ptr, int size);
 int					ft_sqrt(int nb);
 char				*ft_strcat(char *s1, const char *s2);
 char				*ft_strchr(const char *s, int c);
+int					ft_strchr_index(char *s, int c);
 void				ft_strclr(char *s);
 int					ft_strcmp(const char *s1, const char *s2);
 char				*ft_strcpy(char *dst, const char *src);
@@ -90,6 +92,8 @@ char				*ft_strsub(char const *s, unsigned int start, size_t len);
 char				*ft_strtrim(char const *s);
 int					ft_tolower(int c);
 int					ft_toupper(int c);
+size_t				ft_wcharsize(unsigned wc);
+size_t				ft_wstrlen(unsigned *s);
 int					get_next_line(int fd, char **line);
 
 #endif

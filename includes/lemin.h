@@ -6,7 +6,7 @@
 /*   By: lmarques <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/09 17:53:42 by lmarques          #+#    #+#             */
-/*   Updated: 2018/05/13 05:40:59 by lmarques         ###   ########.fr       */
+/*   Updated: 2018/05/17 23:07:49 by lmarques         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include "../libft/libft.h"
 # include "../libft/get_next_line.h"
+# include "../libft/ft_printf/ft_printf.h"
 
 enum	e_errors
 {
@@ -102,7 +103,11 @@ void					clear_visited(t_env *env);
 void					set_path(t_env *env);
 void					set_parents(t_env *env);
 int						get_parent(t_room_list *parent, t_room_list *child);
+t_room_list				*get_next_room(t_env *env, t_ant ant);
 
 void					move_all_ants(t_env *env);
+
+void					default_print(t_env *env, int farest, int count);
+void					verbose_print(t_env *env, int farest, int count);
 
 #endif
