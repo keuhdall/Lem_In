@@ -6,14 +6,14 @@
 /*   By: lmarques <lmarques@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/13 05:13:11 by lmarques          #+#    #+#             */
-/*   Updated: 2018/05/13 05:54:19 by lmarques         ###   ########.fr       */
+/*   Updated: 2018/05/17 20:34:05 by lmarques         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/lemin.h"
 #include <stdio.h>
 
-int		get_farest_ant(t_env *env)
+int			get_farest_ant(t_env *env)
 {
 	int	count;
 
@@ -26,7 +26,7 @@ int		get_farest_ant(t_env *env)
 	return (-1);
 }
 
-int		get_how_far_in_path(t_env *env, t_ant ant)
+int			get_how_far_in_path(t_env *env, t_ant ant)
 {
 	int	count;
 
@@ -50,7 +50,7 @@ t_room_list	*get_next_room(t_env *env, t_ant ant)
 	return (NULL);
 }
 
-void	move_ants(t_env *env, int count_ants)
+void		move_ants(t_env *env, int count_ants)
 {
 	int	count;
 	int	farest;
@@ -62,14 +62,15 @@ void	move_ants(t_env *env, int count_ants)
 		if (farest + count < env->ants_size)
 		{
 			printf("Moving ant #%d from %s to %s\n",
-			farest + count, env->ants[farest + count].room->name, get_next_room(env, env->ants[farest + count])->name);
+			farest + count, env->ants[farest + count].room->name,
+				get_next_room(env, env->ants[farest + count])->name);
 			env->ants[farest + count].room = get_next_room(env,
 				env->ants[farest + count]);
 		}
 	}
 }
 
-void	move_all_ants(t_env *env)
+void		move_all_ants(t_env *env)
 {
 	while (get_farest_ant(env) != -1)
 	{
