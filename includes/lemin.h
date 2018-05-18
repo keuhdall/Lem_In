@@ -6,7 +6,7 @@
 /*   By: lmarques <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/09 17:53:42 by lmarques          #+#    #+#             */
-/*   Updated: 2018/05/17 23:07:49 by lmarques         ###   ########.fr       */
+/*   Updated: 2018/05/18 03:43:53 by lmarques         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,8 @@ enum	e_errors
 	ERR_INVALID_SYNTAX,
 	ERR_INVALID_STRUCT,
 	ERR_ROOM_NOT_FOUND,
-	ERR_MALLOC_FAILED
+	ERR_MALLOC_FAILED,
+	ERR_NO_PATH
 };
 
 enum	e_line_type

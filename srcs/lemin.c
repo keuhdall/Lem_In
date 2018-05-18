@@ -6,7 +6,7 @@
 /*   By: lmarques <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/09 17:55:10 by lmarques          #+#    #+#             */
-/*   Updated: 2018/05/13 05:41:26 by lmarques         ###   ########.fr       */
+/*   Updated: 2018/05/18 03:46:45 by lmarques         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,33 +59,11 @@ int		main(int argc, char *argv[])
 	read_file(argv[1], &env);
 	check_env(&env);
 	fill_ants(&env);
-	t_room_list	*tmp;
-	tmp = *(&env.rooms);
-	while (tmp)
-	{
-		printf("Name : %s posX : %d posY: %d\n", tmp->name, tmp->pos.x, tmp->pos.y);
-		print_neighbors(tmp);
-		printf("================\n");
-		tmp = tmp->next;
-	}
-	for (int i = 0; i < env.ants_size; i++) {
-		printf("ant ID : %d is in room : %s\n", env.ants[i].id, env.ants[i].room->name);
-	}
-	printf("Start is : %s\n", env.start->name);
-	printf("End is : %s\n", env.end->name);
-	if (check_path_to_end(&env, env.start))
-		printf("This map is valid !\n");
-	else
-		printf("This map is not valid !\n");
+	if (!check_path_to_end(&env, env.start))
+		puterr(ERR_NO_PATH);
 	clear_visited(&env);
 	set_parents(&env);
-	print_parents(&env);
-	printf("===================\n");
-	//print_path(&env);
 	set_path(&env);
-	for (int i = 0; i < env.path_size; i++) {
-		printf("Name : %s\n", env.path[i]->name);
-	}
 	move_all_ants(&env);
 	return (0);
 }
