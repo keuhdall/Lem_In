@@ -6,7 +6,7 @@
 /*   By: lmarques <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/09 17:53:42 by lmarques          #+#    #+#             */
-/*   Updated: 2018/05/18 04:52:26 by lmarques         ###   ########.fr       */
+/*   Updated: 2018/05/18 19:33:50 by lmarques         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,10 +96,8 @@ int						get_array_length(char **a);
 void					free_split(char **a);
 int						get_line_type(char *s);
 void					read_file(t_env *env, char *line);
-void					read_args(t_env *env, int argc, char *argv[]);
 
-void					init_structs_file(t_env *env, char *name);
-void					init_structs_args(t_env *env, int argc, char *argv[]);
+void					init_structs(t_env *env, char *name);
 void					fill_ants(t_env *env);
 
 t_room_list				*new_room(char *ln);

@@ -6,7 +6,7 @@
 /*   By: lmarques <lmarques@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/13 05:13:11 by lmarques          #+#    #+#             */
-/*   Updated: 2018/05/17 23:41:20 by lmarques         ###   ########.fr       */
+/*   Updated: 2018/05/18 19:48:42 by lmarques         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ void		move_ants(t_env *env, int count_ants)
 	{
 		if (farest + count < env->ants_size)
 		{
-			if (1)
+			if (!env->options.verbose)
 				default_print(env, farest, count);
 			else
 				verbose_print(env, farest, count);
@@ -76,7 +76,7 @@ void		move_all_ants(t_env *env)
 	{
 		move_ants(env,
 		get_how_far_in_path(env, env->ants[get_farest_ant(env)]));
-		if (1)
+		if (!env->options.verbose)
 			ft_printf("\n");
 		else
 			ft_printf("==========================================\n");

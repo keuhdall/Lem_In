@@ -6,7 +6,7 @@
 /*   By: lmarques <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/09 18:07:54 by lmarques          #+#    #+#             */
-/*   Updated: 2018/05/18 04:53:17 by lmarques         ###   ########.fr       */
+/*   Updated: 2018/05/18 19:46:23 by lmarques         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,10 +63,10 @@ void	read_file(t_env *env, char *name)
 	int		ret;
 	char	*ln;
 
-	fd = open(name, O_RDONLY);
+	fd = env->options.file ? open(name, O_RDONLY) : 0;
 	while ((ret = get_next_line(fd, &ln)))
 	{
-		if (ret == -1)
+		if (ret == -1 && env->options.file)
 			puterr(ERR_FILE_OPEN);
 		if (ft_strcmp(ln, "") && get_line_type(ln) != COMMENT)
 			parse_line(env, ln);
@@ -74,16 +74,4 @@ void	read_file(t_env *env, char *name)
 	}
 	free(ln);
 	close(fd);
-}
-
-void	read_args(t_env *env, int argc, char *argv[])
-{
-	int	count;
-
-	count = env->options.verbose ? 1 : 0;
-	while (count < argc)
-	{
-		if (ft_strcmp(argv[count], "") && get_line_type(argv[count]) != COMMENT)
-			parse_line(env, argv[count]);
-	}
 }

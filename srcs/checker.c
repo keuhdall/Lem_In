@@ -6,7 +6,7 @@
 /*   By: lmarques <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/22 17:25:53 by lmarques          #+#    #+#             */
-/*   Updated: 2018/05/18 04:55:47 by lmarques         ###   ########.fr       */
+/*   Updated: 2018/05/18 19:35:35 by lmarques         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,8 @@ void	register_filename(t_env *env, int argc, char *argv[])
 
 void	check_args(t_env *env, int argc, char *argv[])
 {
+	if (argc < 2)
+		return ;
 	if (!ft_strcmp(argv[1], "-v"))
 		env->options.verbose = 1;
 	else if (!ft_strcmp(argv[1], "-f"))
