@@ -6,7 +6,7 @@
 /*   By: lmarques <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/20 18:05:10 by lmarques          #+#    #+#             */
-/*   Updated: 2018/05/18 19:45:59 by lmarques         ###   ########.fr       */
+/*   Updated: 2018/05/18 20:09:32 by lmarques         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	init_structs(t_env *env, char *name)
 	int		ret;
 	char	*ln;
 
-	fd = env->options.file ?  open(name, O_RDONLY) : 0;
+	fd = env->options.file ? open(name, O_RDONLY) : 0;
 	if ((ret = get_next_line(fd, &ln)) == -1)
 		puterr(ERR_FILE_OPEN);
 	else if (!ft_isstrdigit(ln))
