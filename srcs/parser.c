@@ -6,7 +6,7 @@
 /*   By: lmarques <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/09 18:07:54 by lmarques          #+#    #+#             */
-/*   Updated: 2018/05/18 19:46:23 by lmarques         ###   ########.fr       */
+/*   Updated: 2018/05/18 20:34:30 by lmarques         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@ void	parse_command(t_env *env, char *ln)
 		env->command = START;
 	else if (!ft_strcmp(ln, "##end"))
 		env->command = END;
-	else
-		puterr(ERR_INVALID_COMMAND);
 }
 
 void	parse_tube(t_env *env, char *ln)
