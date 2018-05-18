@@ -6,7 +6,7 @@
 /*   By: lmarques <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/22 17:25:53 by lmarques          #+#    #+#             */
-/*   Updated: 2018/05/13 04:10:54 by lmarques         ###   ########.fr       */
+/*   Updated: 2018/05/18 04:55:47 by lmarques         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,4 +35,26 @@ void	check_env(t_env *env)
 {
 	if (!env->start || !env->end || !env->rooms || !env->ants_size)
 		puterr(ERR_INVALID_STRUCT);
+}
+
+void	register_filename(t_env *env, int argc, char *argv[])
+{
+	env->options.file = 1;
+	if (argc < 3)
+		puterr(ERR_NO_FILENAME);
+	else
+		env->options.filename = ft_strdup(argv[2]);
+}
+
+void	check_args(t_env *env, int argc, char *argv[])
+{
+	if (!ft_strcmp(argv[1], "-v"))
+		env->options.verbose = 1;
+	else if (!ft_strcmp(argv[1], "-f"))
+		register_filename(env, argc, argv);
+	else if (!ft_strcmp(argv[1], "-vf") || !ft_strcmp(argv[1], "-fv"))
+	{
+		env->options.verbose = 1;
+		register_filename(env, argc, argv);
+	}
 }

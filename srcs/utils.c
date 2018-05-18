@@ -6,7 +6,7 @@
 /*   By: lmarques <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/09 18:10:15 by lmarques          #+#    #+#             */
-/*   Updated: 2018/05/18 03:44:33 by lmarques         ###   ########.fr       */
+/*   Updated: 2018/05/18 04:10:32 by lmarques         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,9 @@ or didn't link your rooms correctly", 2);
 		ft_putendl_fd("Error : failed to allocate memory ; exitting", 2);
 	else if (e == ERR_NO_PATH)
 		ft_putendl_fd("Error : no path found", 2);
+	else if (e == ERR_NO_FILENAME)
+		ft_putendl_fd("Error : -f option is given, but no filename is provided",
+			2);
 	exit(1);
 }
 
