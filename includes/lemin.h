@@ -6,7 +6,7 @@
 /*   By: lmarques <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/09 17:53:42 by lmarques          #+#    #+#             */
-/*   Updated: 2018/05/19 19:34:34 by lmarques         ###   ########.fr       */
+/*   Updated: 2018/05/19 20:28:18 by lmarques         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,7 +109,6 @@ t_room_list				*find_room(t_room_list *rooms, char *ln);
 void					add_neighbor(t_env *env, char *room1_name,
 							char *room2_name);
 
-void					check_env(t_env *env);
 void					check_args(t_env *env, int argc, char *argv[]);
 int						check_path_to_end(t_env *env, t_room_list *curr);
 int						check_room_name(char *name);
