@@ -6,7 +6,7 @@
 /*   By: lmarques <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/09 17:53:42 by lmarques          #+#    #+#             */
-/*   Updated: 2018/05/19 17:56:02 by lmarques         ###   ########.fr       */
+/*   Updated: 2018/05/19 19:34:34 by lmarques         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,7 @@ typedef struct			s_options
 
 typedef struct			s_env
 {
+	int					fd;
 	t_list				*map;
 	t_options			options;
 	int					command;
@@ -97,7 +98,7 @@ void					puterr(int e);
 int						get_array_length(char **a);
 void					free_split(char **a);
 int						get_line_type(char *s);
-void					read_file(t_env *env, char *line);
+void					read_file(t_env *env);
 
 void					init_structs(t_env *env, char *name);
 void					fill_ants(t_env *env);

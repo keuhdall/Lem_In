@@ -6,7 +6,7 @@
 /*   By: lmarques <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/09 18:07:54 by lmarques          #+#    #+#             */
-/*   Updated: 2018/05/19 17:54:06 by lmarques         ###   ########.fr       */
+/*   Updated: 2018/05/19 19:34:38 by lmarques         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,14 +55,12 @@ void	parse_line(t_env *env, char *ln)
 	}
 }
 
-void	read_file(t_env *env, char *name)
+void	read_file(t_env *env)
 {
-	int		fd;
 	int		ret;
 	char	*ln;
 
-	fd = env->options.file ? open(name, O_RDONLY) : 0;
-	while ((ret = get_next_line(fd, &ln)))
+	while ((ret = get_next_line(env->fd, &ln)))
 	{
 		if (ret == -1 && env->options.file)
 			puterr(ERR_FILE_OPEN);
@@ -73,5 +71,5 @@ void	read_file(t_env *env, char *name)
 	}
 	free(ln);
 	if (env->options.file)
-		close(fd);
+		close(env->fd);
 }
