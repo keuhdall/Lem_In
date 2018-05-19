@@ -6,7 +6,7 @@
 /*   By: lmarques <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/22 17:25:53 by lmarques          #+#    #+#             */
-/*   Updated: 2018/05/19 17:55:24 by lmarques         ###   ########.fr       */
+/*   Updated: 2018/05/19 18:11:57 by lmarques         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,8 @@ int		check_room_name(char *name)
 	int	count;
 
 	count = -1;
+	if (name[0] == '#' || name[0] == 'L')
+		return (0);
 	while (name[++count])
 	{
 		if (name[count] == '-')
