@@ -6,7 +6,7 @@
 /*   By: lmarques <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/20 18:05:10 by lmarques          #+#    #+#             */
-/*   Updated: 2018/05/18 20:09:32 by lmarques         ###   ########.fr       */
+/*   Updated: 2018/05/19 17:47:16 by lmarques         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,10 @@ void	init_structs(t_env *env, char *name)
 	else if (!ft_isstrdigit(ln))
 		puterr(ERR_INVALID_SYNTAX);
 	else
+	{
+		ft_lst_push_back(&env->map, ft_lstnew(ln, ft_strlen(ln) + 1));
 		env->ants_size = ft_atoi(ln);
+	}
 	free(ln);
 	if (env->options.file)
 		close(fd);

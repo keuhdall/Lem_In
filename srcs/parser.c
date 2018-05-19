@@ -6,7 +6,7 @@
 /*   By: lmarques <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/09 18:07:54 by lmarques          #+#    #+#             */
-/*   Updated: 2018/05/18 20:47:50 by lmarques         ###   ########.fr       */
+/*   Updated: 2018/05/19 17:47:53 by lmarques         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ void	read_file(t_env *env, char *name)
 	{
 		if (ret == -1 && env->options.file)
 			puterr(ERR_FILE_OPEN);
-		ft_printf("%s\n", ln);
+		ft_lst_push_back(&env->map, ft_lstnew(ln, ft_strlen(ln) + 1));
 		if (ft_strcmp(ln, "") && get_line_type(ln) != COMMENT)
 			parse_line(env, ln);
 		free(ln);
@@ -74,5 +74,4 @@ void	read_file(t_env *env, char *name)
 	free(ln);
 	if (env->options.file)
 		close(fd);
-	ft_printf("\n");
 }

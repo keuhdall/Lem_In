@@ -6,11 +6,24 @@
 /*   By: lmarques <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/09 17:55:10 by lmarques          #+#    #+#             */
-/*   Updated: 2018/05/18 19:47:08 by lmarques         ###   ########.fr       */
+/*   Updated: 2018/05/19 17:49:13 by lmarques         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/lemin.h"
+
+void	display_map(t_env *env)
+{
+	t_list	*tmp;
+
+	tmp = env->map;
+	while (tmp)
+	{
+		ft_printf("%s\n", (char *)tmp->content);
+		tmp = tmp->next;
+	}
+	ft_printf("\n");
+}
 
 int		main(int argc, char *argv[])
 {
@@ -27,6 +40,7 @@ int		main(int argc, char *argv[])
 	clear_visited(&env);
 	set_parents(&env);
 	set_path(&env);
+	display_map(&env);
 	move_all_ants(&env);
 	return (0);
 }

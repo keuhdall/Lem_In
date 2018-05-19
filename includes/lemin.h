@@ -6,7 +6,7 @@
 /*   By: lmarques <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/09 17:53:42 by lmarques          #+#    #+#             */
-/*   Updated: 2018/05/18 19:33:50 by lmarques         ###   ########.fr       */
+/*   Updated: 2018/05/19 17:34:20 by lmarques         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,7 @@ typedef struct			s_options
 
 typedef struct			s_env
 {
+	t_list				*map;
 	t_options			options;
 	int					command;
 	int					curr_room;
