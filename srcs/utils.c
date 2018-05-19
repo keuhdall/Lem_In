@@ -6,7 +6,7 @@
 /*   By: lmarques <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/09 18:10:15 by lmarques          #+#    #+#             */
-/*   Updated: 2018/05/18 04:10:32 by lmarques         ###   ########.fr       */
+/*   Updated: 2018/05/19 17:53:33 by lmarques         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ or didn't link your rooms correctly", 2);
 	else if (e == ERR_NO_FILENAME)
 		ft_putendl_fd("Error : -f option is given, but no filename is provided",
 			2);
+	else if (e == ERR_INVALID_ROOM_NAME)
+		ft_putendl_fd("Error : invalid room name", 2);
 	exit(1);
 }
 

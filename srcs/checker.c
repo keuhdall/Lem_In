@@ -6,7 +6,7 @@
 /*   By: lmarques <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/22 17:25:53 by lmarques          #+#    #+#             */
-/*   Updated: 2018/05/18 19:35:35 by lmarques         ###   ########.fr       */
+/*   Updated: 2018/05/19 17:55:24 by lmarques         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,4 +59,17 @@ void	check_args(t_env *env, int argc, char *argv[])
 		env->options.verbose = 1;
 		register_filename(env, argc, argv);
 	}
+}
+
+int		check_room_name(char *name)
+{
+	int	count;
+
+	count = -1;
+	while (name[++count])
+	{
+		if (name[count] == '-')
+			return (0);
+	}
+	return (1);
 }

@@ -6,7 +6,7 @@
 /*   By: lmarques <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/12 19:15:40 by lmarques          #+#    #+#             */
-/*   Updated: 2018/05/08 19:23:41 by lmarques         ###   ########.fr       */
+/*   Updated: 2018/05/19 17:56:38 by lmarques         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,10 @@ t_room_list	*new_room(char *ln)
 	if (!(tmp = (t_room_list *)malloc(sizeof(t_room_list))))
 		return (NULL);
 	a = ft_strsplit(ln, ' ');
-	tmp->name = ft_strdup(a[0]);
+	if (check_room_name(a[0]))
+		tmp->name = ft_strdup(a[0]);
+	else
+		puterr(ERR_INVALID_ROOM_NAME);
 	tmp->visited = 0;
 	tmp->pos.x = ft_atoi(a[1]);
 	tmp->pos.y = ft_atoi(a[2]);

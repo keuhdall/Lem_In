@@ -6,7 +6,7 @@
 /*   By: lmarques <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/09 17:53:42 by lmarques          #+#    #+#             */
-/*   Updated: 2018/05/19 17:34:20 by lmarques         ###   ########.fr       */
+/*   Updated: 2018/05/19 17:56:02 by lmarques         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,8 @@ enum	e_errors
 	ERR_ROOM_NOT_FOUND,
 	ERR_MALLOC_FAILED,
 	ERR_NO_PATH,
-	ERR_NO_FILENAME
+	ERR_NO_FILENAME,
+	ERR_INVALID_ROOM_NAME
 };
 
 enum	e_line_type
@@ -110,6 +111,7 @@ void					add_neighbor(t_env *env, char *room1_name,
 void					check_env(t_env *env);
 void					check_args(t_env *env, int argc, char *argv[]);
 int						check_path_to_end(t_env *env, t_room_list *curr);
+int						check_room_name(char *name);
 
 void					clear_visited(t_env *env);
 void					set_path(t_env *env);
