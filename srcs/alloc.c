@@ -6,7 +6,7 @@
 /*   By: lmarques <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/20 18:05:10 by lmarques          #+#    #+#             */
-/*   Updated: 2018/05/19 19:41:33 by lmarques         ###   ########.fr       */
+/*   Updated: 2018/05/19 19:50:59 by lmarques         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,8 @@ void	init_structs(t_env *env, char *name)
 	char	*ln;
 
 	env->fd = env->options.file ? open(name, O_RDONLY) : 0;
-	ft_printf("name : %s ; file : %d ; fd : %d\n", name, env->options.file, env->fd);
 	while ((ret = get_next_line(env->fd, &ln) && get_line_type(ln) == COMMENT))
 	{
-	ft_putendl("zzz");
 		if (ret == -1)
 			puterr(ERR_FILE_OPEN);
 		ft_lst_push_back(&env->map, ft_lstnew(ln, ft_strlen(ln) + 1));
