@@ -6,7 +6,7 @@
 /*   By: lmarques <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/22 17:25:53 by lmarques          #+#    #+#             */
-/*   Updated: 2018/05/19 20:27:54 by lmarques         ###   ########.fr       */
+/*   Updated: 2018/05/19 20:50:11 by lmarques         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,24 @@ int		check_path_to_end(t_env *env, t_room_list *curr)
 		}
 	}
 	return (0);
+}
+
+void	assign_command(t_env *env, t_room_list *room)
+{
+	if (env->command == START)
+	{
+		if (!env->start)
+			env->start = room;
+		else
+			puterr(ERR_COMMAND_ASSIGNED);
+	}
+	else if (env->command == END)
+	{
+		if (!env->end)
+			env->end = room;
+		else
+			puterr(ERR_COMMAND_ASSIGNED);
+	}
 }
 
 void	register_filename(t_env *env, int argc, char *argv[])

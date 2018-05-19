@@ -6,7 +6,7 @@
 /*   By: lmarques <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/09 18:07:54 by lmarques          #+#    #+#             */
-/*   Updated: 2018/05/19 19:34:38 by lmarques         ###   ########.fr       */
+/*   Updated: 2018/05/19 20:51:19 by lmarques         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,10 +45,7 @@ void	parse_line(t_env *env, char *ln)
 		room = new_room(ln);
 		if (env->command != NONE)
 		{
-			if (env->command == START)
-				env->start = room;
-			else if (env->command == END)
-				env->end = room;
+			assign_command(env, room);
 			env->command = NONE;
 		}
 		push_room(&env->rooms, room);
