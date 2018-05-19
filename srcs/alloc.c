@@ -6,7 +6,7 @@
 /*   By: lmarques <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/20 18:05:10 by lmarques          #+#    #+#             */
-/*   Updated: 2018/05/19 19:50:59 by lmarques         ###   ########.fr       */
+/*   Updated: 2018/05/20 00:56:10 by lmarques         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,12 @@ void	init_structs(t_env *env, char *name)
 	char	*ln;
 
 	env->fd = env->options.file ? open(name, O_RDONLY) : 0;
-	while ((ret = get_next_line(env->fd, &ln) && get_line_type(ln) == COMMENT))
+	while ((ret = get_next_line(env->fd, &ln)))
 	{
 		if (ret == -1)
 			puterr(ERR_FILE_OPEN);
+		if (get_line_type(ln) != COMMENT)
+			break ;
 		ft_lst_push_back(&env->map, ft_lstnew(ln, ft_strlen(ln) + 1));
 		free(ln);
 	}
