@@ -6,7 +6,7 @@
 /*   By: lmarques <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/09 18:10:15 by lmarques          #+#    #+#             */
-/*   Updated: 2018/05/19 17:53:33 by lmarques         ###   ########.fr       */
+/*   Updated: 2018/05/19 20:33:14 by lmarques         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,8 @@
 
 void	puterr(int e)
 {
-	if (e == ERR_WRONG_ARGS)
-		ft_putendl_fd("Error : please provide only one argument", 2);
-	else if (e == ERR_FILE_OPEN)
+	if (e == ERR_FILE_OPEN)
 		ft_putendl_fd("Error : could not open this file", 2);
-	else if (e == ERR_INVALID_COMMAND)
-		ft_putendl_fd("Error : invalid command", 2);
 	else if (e == ERR_INVALID_SYNTAX)
 		ft_putendl_fd("Error : invalid syntax", 2);
 	else if (e == ERR_INVALID_STRUCT)

@@ -6,7 +6,7 @@
 /*   By: lmarques <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/09 17:53:42 by lmarques          #+#    #+#             */
-/*   Updated: 2018/05/19 20:28:18 by lmarques         ###   ########.fr       */
+/*   Updated: 2018/05/19 20:33:25 by lmarques         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,7 @@
 
 enum	e_errors
 {
-	ERR_WRONG_ARGS,
 	ERR_FILE_OPEN,
-	ERR_INVALID_COMMAND,
 	ERR_INVALID_SYNTAX,
 	ERR_INVALID_STRUCT,
 	ERR_ROOM_NOT_FOUND,
