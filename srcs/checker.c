@@ -6,7 +6,7 @@
 /*   By: lmarques <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/22 17:25:53 by lmarques          #+#    #+#             */
-/*   Updated: 2018/05/19 20:50:11 by lmarques         ###   ########.fr       */
+/*   Updated: 2018/05/20 02:52:23 by lmarques         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,13 +49,17 @@ void	assign_command(t_env *env, t_room_list *room)
 	}
 }
 
-void	register_filename(t_env *env, int argc, char *argv[])
+void	check_room_duplicate(t_env *env, t_room_list *room)
 {
-	env->options.file = 1;
-	if (argc < 3)
-		puterr(ERR_NO_FILENAME);
-	else
-		env->options.filename = ft_strdup(argv[2]);
+	t_room_list	*tmp;
+
+	tmp = env->rooms;
+	while (tmp)
+	{
+		if (!ft_strcmp(tmp->name, room->name))
+			puterr(ERR_ROOM_DUPLICATE);
+		tmp = tmp->next;
+	}
 }
 
 void	check_args(t_env *env, int argc, char *argv[])
@@ -64,12 +68,16 @@ void	check_args(t_env *env, int argc, char *argv[])
 		return ;
 	if (!ft_strcmp(argv[1], "-v"))
 		env->options.verbose = 1;
-	else if (!ft_strcmp(argv[1], "-f"))
-		register_filename(env, argc, argv);
-	else if (!ft_strcmp(argv[1], "-vf") || !ft_strcmp(argv[1], "-fv"))
+	else if (!ft_strcmp(argv[1], "-f") ||
+		!ft_strcmp(argv[1], "-vf") || !ft_strcmp(argv[1], "-fv"))
 	{
-		env->options.verbose = 1;
-		register_filename(env, argc, argv);
+		if (!ft_strcmp(argv[1], "-vf") || !ft_strcmp(argv[1], "-fv"))
+			env->options.verbose = 1;
+		env->options.file = 1;
+		if (argc < 3)
+			puterr(ERR_NO_FILENAME);
+		else
+			env->options.filename = ft_strdup(argv[2]);
 	}
 }
 

@@ -6,7 +6,7 @@
 /*   By: lmarques <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/09 17:53:42 by lmarques          #+#    #+#             */
-/*   Updated: 2018/05/19 20:51:05 by lmarques         ###   ########.fr       */
+/*   Updated: 2018/05/20 02:52:01 by lmarques         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,8 @@ enum	e_errors
 	ERR_MALLOC_FAILED,
 	ERR_NO_PATH,
 	ERR_NO_FILENAME,
-	ERR_INVALID_ROOM_NAME
+	ERR_INVALID_ROOM_NAME,
+	ERR_ROOM_DUPLICATE
 };
 
 enum	e_line_type
@@ -112,6 +113,7 @@ void					assign_command(t_env *env, t_room_list *room);
 void					check_args(t_env *env, int argc, char *argv[]);
 int						check_path_to_end(t_env *env, t_room_list *curr);
 int						check_room_name(char *name);
+void					check_room_duplicate(t_env *env, t_room_list *room);
 
 void					clear_visited(t_env *env);
 void					set_path(t_env *env);

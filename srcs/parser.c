@@ -6,7 +6,7 @@
 /*   By: lmarques <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/09 18:07:54 by lmarques          #+#    #+#             */
-/*   Updated: 2018/05/19 20:51:19 by lmarques         ###   ########.fr       */
+/*   Updated: 2018/05/20 02:49:16 by lmarques         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ void	parse_line(t_env *env, char *ln)
 	else if (get_line_type(ln) == ROOM)
 	{
 		room = new_room(ln);
+		check_room_duplicate(env, room);
 		if (env->command != NONE)
 		{
 			assign_command(env, room);

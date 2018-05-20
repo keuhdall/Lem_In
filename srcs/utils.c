@@ -6,7 +6,7 @@
 /*   By: lmarques <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/09 18:10:15 by lmarques          #+#    #+#             */
-/*   Updated: 2018/05/19 20:49:28 by lmarques         ###   ########.fr       */
+/*   Updated: 2018/05/20 02:52:02 by lmarques         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ or didn't link your rooms correctly", 2);
 	else if (e == ERR_ROOM_NOT_FOUND)
 		ft_putendl_fd("Error : room not found", 2);
 	else if (e == ERR_MALLOC_FAILED)
-		ft_putendl_fd("Error : failed to allocate memory ; exitting", 2);
+		ft_putendl_fd("Error : failed to allocate memory ; exiting", 2);
 	else if (e == ERR_NO_PATH)
 		ft_putendl_fd("Error : no path found", 2);
 	else if (e == ERR_NO_FILENAME)
@@ -35,6 +35,8 @@ or didn't link your rooms correctly", 2);
 			2);
 	else if (e == ERR_INVALID_ROOM_NAME)
 		ft_putendl_fd("Error : invalid room name", 2);
+	else if (e == ERR_ROOM_DUPLICATE)
+		ft_putendl_fd("Error : found a room duplicate", 2);
 	exit(1);
 }
 
