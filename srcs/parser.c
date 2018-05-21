@@ -6,7 +6,7 @@
 /*   By: lmarques <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/09 18:07:54 by lmarques          #+#    #+#             */
-/*   Updated: 2018/05/20 02:49:16 by lmarques         ###   ########.fr       */
+/*   Updated: 2018/05/21 21:38:24 by lmarques         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,14 +57,22 @@ void	read_file(t_env *env)
 {
 	int		ret;
 	char	*ln;
+	char	*trim;
 
 	while ((ret = get_next_line(env->fd, &ln)))
 	{
 		if (ret == -1 && env->options.file)
 			puterr(ERR_FILE_OPEN);
+		trim = ft_strtrim(ln);
 		ft_lst_push_back(&env->map, ft_lstnew(ln, ft_strlen(ln) + 1));
-		if (ft_strcmp(ln, "") && get_line_type(ln) != COMMENT)
+		if (!ft_strcmp(trim, ""))
+		{
+			free(trim);
+			break ;
+		}
+		else if (get_line_type(ln) != COMMENT)
 			parse_line(env, ln);
+		free(trim);
 		free(ln);
 	}
 	free(ln);
