@@ -6,7 +6,7 @@
 /*   By: lmarques <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/20 18:05:10 by lmarques          #+#    #+#             */
-/*   Updated: 2018/05/21 21:23:07 by lmarques         ###   ########.fr       */
+/*   Updated: 2018/05/21 21:47:23 by lmarques         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ void	alloc_ants(t_env *env, char *ln)
 		if (env->ants_size <= 0)
 			puterr(ERR_INVALID_SYNTAX);
 	}
-	free(ln);
 	if (!(env->ants = (t_ant *)malloc(sizeof(t_ant) * env->ants_size)))
 		puterr(ERR_MALLOC_FAILED);
 }
@@ -54,9 +53,7 @@ void	init_structs(t_env *env, char *name)
 		if (ret == -1)
 			puterr(ERR_FILE_OPEN);
 		trim = ft_strtrim(ln);
-		if (get_line_type(ln) != COMMENT)
-			break ;
-		else if (!ft_strcmp(trim, "\n"))
+		if (get_line_type(ln) != COMMENT || !ft_strcmp(trim, "\n"))
 		{
 			free(trim);
 			break ;
@@ -66,4 +63,5 @@ void	init_structs(t_env *env, char *name)
 		free(ln);
 	}
 	alloc_ants(env, ln);
+	free(ln);
 }
